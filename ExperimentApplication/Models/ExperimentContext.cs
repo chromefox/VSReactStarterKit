@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExperimentApplication.Models
 {
-    public class ExperimentContext : DbContext
+    public class ExperimentContext : DbContext, IExperimentContextInterface
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Listing> Listings { get; set; }
