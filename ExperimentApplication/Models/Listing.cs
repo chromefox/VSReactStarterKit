@@ -23,5 +23,7 @@ namespace ExperimentApplication.Models
         public virtual User User { get; set; }
 
         public long UserId { get; set; }
+
+        public override long EntityId => ListingId;
     }
 }

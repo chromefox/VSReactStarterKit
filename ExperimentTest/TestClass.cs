@@ -43,9 +43,10 @@ namespace ExperimentTest
             var blogs = (await service.GetAllAsync()).ToList();
 
             Assert.Equal(3, blogs.Count());
-            Assert.Equal("AAA", blogs[2].Name);
+
             Assert.Equal("BBB", blogs[0].Name);
             Assert.Equal("ZZZ", blogs[1].Name);
+            Assert.Equal("AAA", blogs[2].Name);
         }
     }
 }

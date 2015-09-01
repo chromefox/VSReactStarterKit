@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
+using ExperimentApplication.Classes;
 using ExperimentApplication.Models;
 
 namespace ExperimentApplication.Repositories
 {
-    public class CategoryRepository
+    public class CategoryRepository : BaseRepository<Category, long>
     {
         private readonly IExperimentContextInterface _context;
 

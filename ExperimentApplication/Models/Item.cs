@@ -27,5 +27,7 @@ namespace ExperimentApplication.Models
         public virtual Category Category { get; set; }
 
         public long? CategoryId { get; set; }
+
+        public override long EntityId => ItemId;
     }
 }
