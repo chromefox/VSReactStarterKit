@@ -15,5 +15,6 @@ namespace ExperimentApplication.Models
 
         public string Name { get; set; }
 
+        public virtual ICollection<Listing> ListingItems { get; set; }
     }
 }

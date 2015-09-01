@@ -54,7 +54,14 @@
   <ItemGroup>
     <Compile Include="Classes\DataLayerInterfaces.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ExperimentContext.cs" />
+    <Compile Include="Models\Gallery.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\Listing.cs" />
+    <Compile Include="Models\ListingItem.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,7 +69,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
