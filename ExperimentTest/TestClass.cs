@@ -7,6 +7,7 @@ using ExperimentApplication.Models;
 using ExperimentApplication.Repositories;
 using ExperimentTest.TestUtils;
 using Moq;
+using Ploeh.AutoFixture;
 using Xunit;
 
 namespace ExperimentTest
@@ -18,9 +19,9 @@ namespace ExperimentTest
         {
             var data = new List<Category>
             {
-                new Category { Name = "BBB" },
-                new Category { Name = "ZZZ" },
-                new Category { Name = "AAA" },
+                new Category("BBB"),
+                new Category("ZZZ"),
+                new Category("AAA"),
             }.AsQueryable();
 
             var mockSet = new Mock<DbSet<Category>>();
@@ -36,16 +37,63 @@ namespace ExperimentTest
             mockSet.As<IQueryable<Category>>().Setup(m => m.ElementType).Returns(data.ElementType);
             mockSet.As<IQueryable<Category>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
 
-            var mockContext = new Mock<IExperimentContextInterface>();
+            var mockContext = new Mock<ExperimentContext>();
             mockContext.Setup(c => c.Categories).Returns(mockSet.Object);
+            mockContext.Setup(c => c.Set<Category>()).Returns(mockSet.Object);
 
             var service = new CategoryRepository(mockContext.Object);
             var blogs = (await service.GetAllAsync()).ToList();
 
             Assert.Equal(3, blogs.Count());
-            Assert.Equal("AAA", blogs[2].Name);
+
             Assert.Equal("BBB", blogs[0].Name);
             Assert.Equal("ZZZ", blogs[1].Name);
+            Assert.Equal("AAA", blogs[2].Name);
+        }
+
+        [Fact]
+        public void TestNonAsyncEF()
+        {
+            var data = new List<Category>
+            {
+                new Category("BBB"),
+                new Category("ZZZ"),
+                new Category("AAA"),
+            }.AsQueryable();
+
+            var mockSet = new Mock<DbSet<Category>>();
+            mockSet.As<IDbAsyncEnumerable<Category>>()
+                .Setup(m => m.GetAsyncEnumerator())
+                .Returns(new TestDbAsyncEnumerator<Category>(data.GetEnumerator()));
+
+            mockSet.As<IQueryable<Category>>()
+                .Setup(m => m.Provider)
+                .Returns(new TestDbAsyncQueryProvider<Category>(data.Provider));
+
+            mockSet.As<IQueryable<Category>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Category>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<Category>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+
+            var mockContext = new Mock<ExperimentContext>();
+            mockContext.Setup(c => c.Categories).Returns(mockSet.Object);
+            mockContext.Setup(c => c.Set<Category>()).Returns(mockSet.Object);
+
+            var service = new CategoryRepository(mockContext.Object);
+            var blogs = service.GetAll().ToList();
+
+            Assert.Equal(3, blogs.Count());
+
+            Assert.Equal("BBB", blogs[0].Name);
+            Assert.Equal("ZZZ", blogs[1].Name);
+            Assert.Equal("AAA", blogs[2].Name);
+        }
+
+        public void BizLogic1()
+        {
+            // User cannot have more than 3 listings....
+            var user = new Fixture();
+
+
         }
     }
 }

@@ -1,22 +1,29 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
+using ExperimentApplication.Classes;
 using ExperimentApplication.Models;
 
 namespace ExperimentApplication.Repositories
 {
-    public class CategoryRepository
+    public interface ICategoryRepository : IRepository<Category, long>
     {
-        private readonly IExperimentContextInterface _context;
+        Task<IEnumerable<Category>> GetAllAsync();
+    }
 
-        public CategoryRepository(IExperimentContextInterface context)
-        {
-            _context = context;
-        }
+    public class CategoryRepository : BaseRepository<Category, long>, ICategoryRepository
+    {
+        public CategoryRepository(DbContext context) : base(context) { }
 
         public async Task<IEnumerable<Category>> GetAllAsync()
         {
-            return await _context.Categories.ToListAsync();
+            return await DbSet.ToListAsync();
+        }
+
+        public IEnumerable<Category> GetAll()
+        {
+            return DbSet.ToList();
         }
     }
 }

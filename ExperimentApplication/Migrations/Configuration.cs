@@ -1,18 +1,17 @@
+using ExperimentApplication.Models;
+
 namespace ExperimentApplication.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ExperimentApplication.Models.ExperimentContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.ExperimentContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(ExperimentApplication.Models.ExperimentContext context)
+        protected override void Seed(Models.ExperimentContext context)
         {
             //  This method will be called after migrating to the latest version.
 

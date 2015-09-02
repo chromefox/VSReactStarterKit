@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace ExperimentApplication.Models
 {
-    public class ExperimentContext : DbContext, IExperimentContextInterface
+    public class ExperimentContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Listing> Listings { get; set; }
-        public DbSet<ListingItem> ListingItems { get; set; }
-        public DbSet<Item> Items { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Gallery> Galleries { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Listing> Listings { get; set; }
+        public virtual DbSet<ListingItem> ListingItems { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Gallery> Galleries { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             DefineUserRelationship(modelBuilder);
+            modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
+            base.OnModelCreating(modelBuilder);
         }
 
         protected void DefineUserRelationship(DbModelBuilder modelBuilder)

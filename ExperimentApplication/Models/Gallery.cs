@@ -19,5 +19,12 @@ namespace ExperimentApplication.Models
         public virtual Item Item { get; set; }
 
         public long ItemId { get; set; }
+
+        public override long EntityId => GalleryId;
+
+        public Gallery(string resource)
+        {
+            ResourceURI = resource;
+        }
     }
 }
