@@ -24,7 +24,7 @@ namespace ExperimentApplication.Classes
     /// </summary>
     /// <typeparam name="T">The T object</typeparam>
     /// <typeparam name="TKey">The TKey object</typeparam>
-    public abstract class BaseRepository<T, TKey> : IDisposable, IRepository<T, TKey> where T : class, IBaseEntity
+    public abstract class BaseRepository<T, TKey> : IDisposable where T : class, IBaseEntity
     {
         private readonly DbContext _context;
         protected static Logger Logger = LogManager.GetCurrentClassLogger();

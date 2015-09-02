@@ -18,9 +18,9 @@ namespace ExperimentTest
         {
             var data = new List<Category>
             {
-                new Category { Name = "BBB" },
-                new Category { Name = "ZZZ" },
-                new Category { Name = "AAA" },
+                new Category("BBB"),
+                new Category("ZZZ"),
+                new Category("AAA"),
             }.AsQueryable();
 
             var mockSet = new Mock<DbSet<Category>>();
@@ -36,7 +36,7 @@ namespace ExperimentTest
             mockSet.As<IQueryable<Category>>().Setup(m => m.ElementType).Returns(data.ElementType);
             mockSet.As<IQueryable<Category>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
 
-            var mockContext = new Mock<IExperimentContextInterface>();
+            var mockContext = new Mock<ExperimentContext>();
             mockContext.Setup(c => c.Categories).Returns(mockSet.Object);
 
             var service = new CategoryRepository(mockContext.Object);

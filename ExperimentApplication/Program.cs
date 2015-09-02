@@ -18,6 +18,12 @@ namespace ExperimentApplication
             4) Consider using services for multiple repo...
             5) Figure out how to use TDD to develop.
             */
+            var container = SimpleInjectorInitializer.Init();
+            var databaseContainer = container.GetInstance<DatabaseService>();
+            databaseContainer.CreateSampleCategory();;
+
+            Console.Write("Finish executing...");
+            Console.ReadLine();
         }
     }
 }

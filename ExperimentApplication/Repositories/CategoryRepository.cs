@@ -6,18 +6,18 @@ using ExperimentApplication.Models;
 
 namespace ExperimentApplication.Repositories
 {
-    public class CategoryRepository : BaseRepository<Category, long>
+    public interface ICategoryRepository : IRepository<Category, long>
     {
-        private readonly IExperimentContextInterface _context;
+        Task<IEnumerable<Category>> GetAllAsync();
+    }
 
-        public CategoryRepository(IExperimentContextInterface context)
-        {
-            _context = context;
-        }
+    public class CategoryRepository : BaseRepository<Category, long>, ICategoryRepository
+    {
+        public CategoryRepository(DbContext context) : base(context) { }
 
         public async Task<IEnumerable<Category>> GetAllAsync()
         {
-            return await _context.Categories.ToListAsync();
+            return await DbSet.ToListAsync();
         }
     }
 }

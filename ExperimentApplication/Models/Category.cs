@@ -25,5 +25,10 @@ namespace ExperimentApplication.Models
         public virtual ICollection<Category> ChildCategories { get; set; }
 
         public override long EntityId => CategoryId;
+
+        public Category(string name)
+        {
+            Name = name;
+        }
     }
 }
