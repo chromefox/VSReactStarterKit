@@ -27,5 +27,18 @@ namespace ExperimentApplication.Models
         {
             
         }
+
+        public bool TryAddListing(Listing listing)
+        {
+            if (ListingItems == null)
+                ListingItems = new List<Listing>();
+
+            if (ListingItems.Count >= 3)
+                return false;
+
+            ListingItems.Add(listing);
+
+            return true;
+        }
     }
 }

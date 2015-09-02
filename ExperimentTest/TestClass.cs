@@ -8,6 +8,7 @@ using ExperimentApplication.Repositories;
 using ExperimentTest.TestUtils;
 using Moq;
 using Ploeh.AutoFixture;
+using Ploeh.AutoFixture.AutoMoq;
 using Xunit;
 
 namespace ExperimentTest
@@ -88,12 +89,17 @@ namespace ExperimentTest
             Assert.Equal("AAA", blogs[2].Name);
         }
 
+        [Fact]
         public void BizLogic1()
         {
             // User cannot have more than 3 listings....
-            var user = new Fixture();
+            var fixture = new Fixture().Customize(new AutoMoqCustomization());
+            fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
+            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
 
-
+            var user = fixture.Create<User>();
+            user.ListingItems = new List<Listing>(fixture.CreateMany<Listing>(3));
+            Assert.Equal(user.TryAddListing(fixture.Create<Listing>()), false);
         }
     }
 }
