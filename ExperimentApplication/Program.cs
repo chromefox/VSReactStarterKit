@@ -20,7 +20,8 @@ namespace ExperimentApplication
             */
             var container = SimpleInjectorInitializer.Init();
             var databaseContainer = container.GetInstance<DatabaseService>();
-            databaseContainer.CreateSampleCategory();;
+            // databaseContainer.InitialSetup();
+            databaseContainer.TestUserCascadeDelete();
 
             Console.Write("Finish executing...");
             Console.ReadLine();

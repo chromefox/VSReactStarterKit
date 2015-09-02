@@ -26,5 +26,22 @@ namespace ExperimentApplication.Models
         public DateTime DateCreated { get; set; }
 
         public override long EntityId => ListingItemId;
+
+        public ListingItem(Listing listing, Item item)
+        {
+            Listing = listing;
+            Item = item;
+        }
+
+        public ListingItem()
+        {
+            DateCreated = DateTime.UtcNow;
+        }
+
+        public ListingItem(long listingId, long itemId)
+        {
+            ListingId = listingId;
+            ItemId = itemId;
+        }
     }
 }

@@ -26,6 +26,7 @@ namespace ExperimentApplication
             container.AddRegistration(typeof(DbContext), registration);
 
             container.Register<ICategoryRepository, CategoryRepository>(Lifestyle.Singleton);
+            container.Register<IUserRepository, UserRepository>(Lifestyle.Singleton);
             container.Register<DatabaseService>(Lifestyle.Singleton);
         }
     }

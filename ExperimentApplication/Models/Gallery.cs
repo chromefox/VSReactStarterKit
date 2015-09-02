@@ -21,5 +21,10 @@ namespace ExperimentApplication.Models
         public long ItemId { get; set; }
 
         public override long EntityId => GalleryId;
+
+        public Gallery(string resource)
+        {
+            ResourceURI = resource;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using ExperimentApplication.Classes;
 using ExperimentApplication.Models;
@@ -18,6 +19,11 @@ namespace ExperimentApplication.Repositories
         public async Task<IEnumerable<Category>> GetAllAsync()
         {
             return await DbSet.ToListAsync();
+        }
+
+        public IEnumerable<Category> GetAll()
+        {
+            return DbSet.ToList();
         }
     }
 }

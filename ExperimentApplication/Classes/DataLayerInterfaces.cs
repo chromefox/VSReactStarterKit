@@ -39,7 +39,7 @@ namespace ExperimentApplication.Classes
 
         }
 
-        public DbSet<T> DbSet => _context.Set<T>();
+        public virtual DbSet<T> DbSet => _context.Set<T>();
 
         public virtual T CreateInstance()
         {

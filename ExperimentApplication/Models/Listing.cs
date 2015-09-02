@@ -25,5 +25,12 @@ namespace ExperimentApplication.Models
         public long UserId { get; set; }
 
         public override long EntityId => ListingId;
+
+        public Listing(string title)
+        {
+            Title = title;
+        }
+
+        
     }
 }

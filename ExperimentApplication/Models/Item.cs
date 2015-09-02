@@ -29,5 +29,12 @@ namespace ExperimentApplication.Models
         public long? CategoryId { get; set; }
 
         public override long EntityId => ItemId;
+
+        public Item(string title, Category category)
+        {
+            Title = title;
+            Category = category;
+            CreatedDateTime = DateTime.UtcNow;
+        }
     }
 }

@@ -19,6 +19,8 @@ namespace ExperimentApplication.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             DefineUserRelationship(modelBuilder);
+            modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
+            base.OnModelCreating(modelBuilder);
         }
 
         protected void DefineUserRelationship(DbModelBuilder modelBuilder)

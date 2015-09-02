@@ -17,5 +17,15 @@ namespace ExperimentApplication.Models
 
         public virtual ICollection<Listing> ListingItems { get; set; }
         public override long EntityId => UserId;
+
+        public User(string name)
+        {
+            Name = name;
+        }
+
+        public User()
+        {
+            
+        }
     }
 }
