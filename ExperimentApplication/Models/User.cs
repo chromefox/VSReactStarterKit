@@ -15,6 +15,8 @@ namespace ExperimentApplication.Models
 
         public string Name { get; set; }
 
+        public DateTime LastSeen { get; set; }
+
         public virtual ICollection<Listing> ListingItems { get; set; }
         public override long EntityId => UserId;
 

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
+using ExperimentApplication.Classes;
 using ExperimentApplication.Models;
 using ExperimentApplication.Repositories;
 using ExperimentTest.TestUtils;
@@ -73,6 +75,57 @@ namespace ExperimentTest
                 mockContext = new Mock<ExperimentContext>();
             mockContext.Setup(c => c.Set<T>()).Returns(mockSet.Object);
             return mockContext;
+        }
+
+        public void TestExternalDep()
+        {
+            /*
+            E.g. Testing email service.
+            I have decided to take out all Email-related classes reference from Controllers.
+            An additional Service layer should be the one referenced by Controllers.
+            The Service layer SHALL return HTTPStatusCode to enable Controller to respond accordingly (with Noty etc)
+            The Service layer should reference Email-related classes.
+            
+            Unit-testing Service Layer:
+            1) Email-sending class should be an interface (Send)
+            2) Verify behaviour that an external dep method is indeed called at least once (or other behaviour). (No other way to test)
+            */
+        }
+
+        [Fact]
+        public void TestTimeSensitiveCode()
+        {
+            /*
+            Any feature that require DateTime.Now / UtcNow or Today should be unit-test pluggable.
+            I should be able to determine the values returned by these methods to make the test time-insensitive and more accurate.
+            */
+
+            /*
+            For example, I want to find Users who have not been active for 2 days.
+            */
+
+            // Arrange
+            var fixture = AutoFixtureFactory.Create();
+            var users = fixture.CreateMany<User>(10).AsQueryable();
+            SystemTime.SetDateTime(new DateTime(2015, 1, 20));
+
+            var inactiveDate = new DateTime(2015, 1, 10);
+            var futureDate = new DateTime(2015, 1, 19);
+
+            foreach (var user in users.Take(5))
+                user.LastSeen = inactiveDate;
+
+            foreach (var user in users.Skip(5))
+                user.LastSeen = futureDate;
+
+            var mockContext = GenerateMockContext(users);
+            var userRepo = new UserRepository(mockContext.Object);
+
+            // Act
+            var inactiveUsers = userRepo.GetInactiveUsers();
+
+            // Assert
+            Assert.Equal(inactiveUsers.Count(), 5);
         }
 
         [Fact]
