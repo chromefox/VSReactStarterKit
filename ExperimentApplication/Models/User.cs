@@ -15,6 +15,8 @@ namespace ExperimentApplication.Models
 
         public string Name { get; set; }
 
+        public DateTime LastSeen { get; set; }
+
         public virtual ICollection<Listing> ListingItems { get; set; }
         public override long EntityId => UserId;
 
@@ -26,6 +28,19 @@ namespace ExperimentApplication.Models
         public User()
         {
             
+        }
+
+        public bool TryAddListing(Listing listing)
+        {
+            if (ListingItems == null)
+                ListingItems = new List<Listing>();
+
+            if (ListingItems.Count >= 3)
+                return false;
+
+            ListingItems.Add(listing);
+
+            return true;
         }
     }
 }

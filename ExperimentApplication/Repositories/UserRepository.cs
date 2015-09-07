@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using ExperimentApplication.Classes;
 using ExperimentApplication.Models;
@@ -13,5 +15,12 @@ namespace ExperimentApplication.Repositories
     public class UserRepository : BaseRepository<User, long>, IUserRepository
     {
         public UserRepository(DbContext context) : base(context) { }
+
+        public IEnumerable<User> GetInactiveUsers()
+        {
+            var dateTime = SystemTime.Now();
+            dateTime = dateTime.AddDays(-2);
+            return DbSet.Where(s => s.LastSeen < dateTime);
+        }
     }
 }
