@@ -92,8 +92,10 @@ namespace ExperimentTest
             */
         }
 
-        [Fact]
-        public void TestTimeSensitiveCode()
+        [Theory,
+         InlineData(12, 6),
+         InlineData(6, 3)]
+        public void TestTimeSensitiveCode(int userCount, int inActive)
         {
             /*
             Any feature that require DateTime.Now / UtcNow or Today should be unit-test pluggable.
@@ -106,16 +108,16 @@ namespace ExperimentTest
 
             // Arrange
             var fixture = AutoFixtureFactory.Create();
-            var users = fixture.CreateMany<User>(10).AsQueryable();
+            var users = fixture.CreateMany<User>(userCount).AsQueryable();
             SystemTime.SetDateTime(new DateTime(2015, 1, 20));
 
             var inactiveDate = new DateTime(2015, 1, 10);
             var futureDate = new DateTime(2015, 1, 19);
 
-            foreach (var user in users.Take(5))
+            foreach (var user in users.Take(inActive))
                 user.LastSeen = inactiveDate;
 
-            foreach (var user in users.Skip(5))
+            foreach (var user in users.Skip(inActive))
                 user.LastSeen = futureDate;
 
             var mockContext = GenerateMockContext(users);
@@ -125,7 +127,7 @@ namespace ExperimentTest
             var inactiveUsers = userRepo.GetInactiveUsers();
 
             // Assert
-            Assert.Equal(inactiveUsers.Count(), 5);
+            Assert.Equal(inactiveUsers.Count(), inActive);
         }
 
         [Fact]
@@ -186,7 +188,7 @@ namespace ExperimentTest
         [Theory, CustomAutoMoqData]
         public void TestTheory(User user)
         {
-            
+
         }
 
         [Fact]

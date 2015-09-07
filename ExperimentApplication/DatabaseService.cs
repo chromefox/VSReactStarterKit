@@ -62,5 +62,16 @@ namespace ExperimentApplication
             _userRepo.Delete(johnDoeUser);
             _userRepo.SaveChanges();
         }
+
+        public void ComplicatedLogic()
+        {
+            /*
+            1) Get userRepo objects
+            2) Get testData objects
+            3) Do complicated logic -> result modifies user that fulfils certain criteria due to interaction with testData
+            
+
+            */
+        }
     }
 }
