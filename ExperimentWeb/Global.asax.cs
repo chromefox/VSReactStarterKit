@@ -6,11 +6,15 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ExperimentLibrary;
+using MassTransit;
 
 namespace ExperimentWeb
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static IServiceBus Bus { get; set; }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -18,6 +22,13 @@ namespace ExperimentWeb
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Bus = MassTransitInitializer.CreateBus("CustomerPortal_WebApp", x => { });
+        }
+
+        protected void Application_End()
+        {
+            Bus.Dispose();
         }
     }
 }

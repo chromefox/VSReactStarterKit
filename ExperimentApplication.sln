@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentTest", "Experimen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentWeb", "ExperimentWeb\ExperimentWeb.csproj", "{3EAF84AA-ADEE-48BF-8179-392F720E3B5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentService", "ExperimentService\ExperimentService.csproj", "{DADCDBA5-A002-49CA-B207-E60CF6B5127E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentLibrary", "ExperimentLibrary\ExperimentLibrary.csproj", "{83E56DFA-1870-4C82-AA90-38B06BC722F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{3EAF84AA-ADEE-48BF-8179-392F720E3B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EAF84AA-ADEE-48BF-8179-392F720E3B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EAF84AA-ADEE-48BF-8179-392F720E3B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DADCDBA5-A002-49CA-B207-E60CF6B5127E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DADCDBA5-A002-49CA-B207-E60CF6B5127E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DADCDBA5-A002-49CA-B207-E60CF6B5127E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DADCDBA5-A002-49CA-B207-E60CF6B5127E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83E56DFA-1870-4C82-AA90-38B06BC722F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E56DFA-1870-4C82-AA90-38B06BC722F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E56DFA-1870-4C82-AA90-38B06BC722F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83E56DFA-1870-4C82-AA90-38B06BC722F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

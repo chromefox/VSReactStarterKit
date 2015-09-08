@@ -3,5 +3,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Send email to Email Service!</h2>
 
+<form method="POST" action="@Url.Action("SendEmail")">
+    <p>
+        Click button to test! An advantage of using a queue system is that the message is persistent until it is consumed by a subscriber.
+        You may click the button first and fire up the service later, emails will still be sent out.
+    </p>
+
+    <input type="submit" value="Send!!" />
+</form>
