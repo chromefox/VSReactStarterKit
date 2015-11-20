@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExperimentApplication.Classes;
 
 namespace ExperimentApplication
 {
@@ -18,12 +19,13 @@ namespace ExperimentApplication
             4) Consider using services for multiple repo...
             5) Figure out how to use TDD to develop.
             */
-            var container = SimpleInjectorInitializer.Init();
-            var databaseContainer = container.GetInstance<DatabaseService>();
-            // databaseContainer.InitialSetup();
-            databaseContainer.TestUserCascadeDelete();
+            //var container = SimpleInjectorInitializer.Init();
+            //var databaseContainer = container.GetInstance<DatabaseService>();
+            //// databaseContainer.InitialSetup();
+            //databaseContainer.TestUserCascadeDelete();
 
-            Console.Write("Finish executing...");
+            ConceptualClarifications.TestRefConceptObject();
+            Console.Write("Finished executing...");
             Console.ReadLine();
         }
     }

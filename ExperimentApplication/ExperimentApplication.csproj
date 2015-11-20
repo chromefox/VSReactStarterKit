@@ -64,9 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ConceptualClarifications.cs" />
     <Compile Include="Classes\DataLayerInterfaces.cs" />
     <Compile Include="Classes\DataModelUtil.cs" />
     <Compile Include="Classes\IRepository.cs" />
+    <Compile Include="Classes\OrderByBoolTest.cs" />
     <Compile Include="Classes\SystemTime.cs" />
     <Compile Include="DatabaseService.cs" />
     <Compile Include="Migrations\201509010351107_InitialMigration.cs" />

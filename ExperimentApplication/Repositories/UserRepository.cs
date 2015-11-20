@@ -22,5 +22,12 @@ namespace ExperimentApplication.Repositories
             dateTime = dateTime.AddDays(-2);
             return DbSet.Where(s => s.LastSeen < dateTime);
         }
+
+        public IEnumerable<User> GetInactiveUsers(Func<DateTime> curDate)
+        {
+            var dateTime = curDate.Invoke();
+            dateTime = dateTime.AddDays(-2);
+            return DbSet.Where(s => s.LastSeen < dateTime);
+        }
     }
 }
