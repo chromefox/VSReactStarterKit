@@ -95,6 +95,7 @@ namespace ExperimentTest
         [Theory,
          InlineData(12, 6),
          InlineData(6, 3)]
+        [Obsolete] // Marked obsolete because relying on static variable would cause issue with parallel exeuction of unit tests.
         public void TestTimeSensitiveCode(int userCount, int inActive)
         {
             /*
@@ -125,6 +126,44 @@ namespace ExperimentTest
 
             // Act
             var inactiveUsers = userRepo.GetInactiveUsers();
+
+            // Assert
+            Assert.Equal(inactiveUsers.Count(), inActive);
+        }
+
+
+        [Theory,
+         InlineData(12, 6),
+         InlineData(6, 3)]
+        public void TestTimeSensitiveCodeMethod2(int userCount, int inActive)
+        {
+            /*
+                Any time dependent logic should expose a Func<DateTime> argument. This will allow a mock date object to be passed into the method.
+            */
+
+            /*
+            For example, I want to find Users who have not been active for 2 days.
+            */
+
+            // Arrange
+            var fixture = AutoFixtureFactory.Create();
+            var users = fixture.CreateMany<User>(userCount).AsQueryable();
+            var setupDate = new DateTime(2015, 1, 20);
+
+            var inactiveDate = new DateTime(2015, 1, 10);
+            var futureDate = new DateTime(2015, 1, 19);
+
+            foreach (var user in users.Take(inActive))
+                user.LastSeen = inactiveDate;
+
+            foreach (var user in users.Skip(inActive))
+                user.LastSeen = futureDate;
+
+            var mockContext = GenerateMockContext(users);
+            var userRepo = new UserRepository(mockContext.Object);
+
+            // Act
+            var inactiveUsers = userRepo.GetInactiveUsers(() => setupDate);
 
             // Assert
             Assert.Equal(inactiveUsers.Count(), inActive);
