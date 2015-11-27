@@ -1,5 +1,25 @@
-﻿<div id="example">
- 
+﻿@{
+    ViewBag.Title = "React Test";
+}
+
+<h2>React Test Lab</h2>
+
+<div class="alert alert-info">
+    The "Hello World" printed below is rendered by ReactDOM. (If you observe page source, it will be empty).
+
+    In order to build the bundle.js used to render the React component, these steps must be taken.
+    <ol>
+        <li>
+            Run command: npm install. This command is to download the dependencies which are not committed into the the repo.
+        </li>
+        <li>
+            Run command: browserify -t [ babelify --presets [ react ] ] main.js -o bundle.js. This command is to compile your ReactJS' main.js class, as well as bundling the dependencies together. It could be further optimized by running uglify on the resultant bundle, and concatenated together. However, that should be done only for "Release" mode.
+        </li>
+    </ol>
 </div>
 
-<script type="text/javascript" src="@Url.Content("~/node_h/bundle.js")"></script>
+<div id="content"></div>
+
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/node_h/bundle.js")"></script>
+}
