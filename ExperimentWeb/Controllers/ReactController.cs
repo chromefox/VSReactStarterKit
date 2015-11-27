@@ -20,7 +20,7 @@ namespace ExperimentWeb.Controllers
         public ActionResult CreateComment(Comment comment)
         {
             // parse the comments object
-            var path = Server.MapPath("/data.json");
+            var path = Server.MapPath("~/data.json");
             var curCommentList = JsonConvert.DeserializeObject<List<Comment>>(System.IO.File.ReadAllText(path));
             curCommentList.Add(comment);
             var newContent = JsonConvert.SerializeObject(curCommentList);
