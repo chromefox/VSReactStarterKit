@@ -4,9 +4,44 @@
 
 <h2>@ViewBag.Title</h2>
 
+<div class="alert alert-info">Below is a simple demonstration of the typescript feature. The javascript generated has gone through type-checks and will allow us to construct js which looks and behaves similarly to C# or Java class concepts.</div>
+
+<h3>Basic demo</h3>
+
+<code style="white-space: pre; word-break: normal; word-wrap: normal;">
+    /// reference path="jquery.d.ts"
+
+    class Student {
+    fullname: string;
+    constructor(public firstname, public middleinitial, public lastname) {
+    this.fullname = firstname + " " + middleinitial + " " + lastname;
+    }
+    }
+
+    interface Person {
+    firstname: string;
+    lastname: string;
+    }
+
+    function greeter(person: Person) {
+    return "Hello, " + person.firstname + " " + person.lastname;
+    }
+
+    var user = new Student("Jane", "M.", "User");
+
+    $(document).ready(function () {
+        $("#ts-content").html(greeter(user));
+    });
+</code>
+
+<h3>Output</h3>
 <div id="ts-content">
-    
+
 </div>
+
+<h3>
+
+</h3>
 
 @section Scripts {
     <script src="~/Scripts/main-typescript.js"></script>
