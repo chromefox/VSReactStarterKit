@@ -28,6 +28,10 @@ var SeatReservation = (function () {
 })();
 var ReservationsViewModel = (function () {
     function ReservationsViewModel() {
+        var _this = this;
+        this.removeSeat = function (seat) {
+            _this.seats.remove(seat);
+        };
         this.availableMeals = [
             { mealName: "Standard (sandwich)", price: 0 },
             { mealName: "Premium (lobster)", price: 34.95 },
@@ -48,9 +52,6 @@ var ReservationsViewModel = (function () {
     };
     ReservationsViewModel.prototype.addSeat = function () {
         this.seats.push(new SeatReservation("", this.availableMeals[0]));
-    };
-    ReservationsViewModel.prototype.removeSeat = function (seat, parent) {
-        this.seats.remove(seat);
     };
     return ReservationsViewModel;
 })();

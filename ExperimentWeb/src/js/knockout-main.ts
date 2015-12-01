@@ -71,9 +71,9 @@ class ReservationsViewModel {
         this.seats.push(new SeatReservation("", this.availableMeals[0]));
     }
 
-    removeSeat(seat, parent) {
+    public removeSeat = (seat: string) => {
         this.seats.remove(seat);
-    }
+    }   
 }
 
 $(document).ready(() => {
