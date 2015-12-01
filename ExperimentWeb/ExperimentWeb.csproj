@@ -227,14 +227,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bundle.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="node_h\.gitignore" />
-    <Content Include="node_h\main.js" />
+    <Content Include="gulpfile.js" />
+    <Content Include="main.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ckeditor2\adapters\jquery.js" />
@@ -785,8 +786,8 @@
     <Content Include="Scripts\ckeditorbasic\LICENSE.md" />
     <Content Include="Scripts\ckeditorbasic\README.md" />
     <Content Include="Scripts\ckeditorbasic\skins\moono\readme.md" />
-    <Content Include="node_h\package.json" />
     <Content Include="data.json" />
+    <Content Include="package.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -872,6 +873,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\main-typescript.ts" />
   </ItemGroup>
   <ItemGroup>
