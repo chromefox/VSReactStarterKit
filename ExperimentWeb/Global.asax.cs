@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using ExperimentLibrary;
+using ExperimentWeb.Models;
 using MassTransit;
 
 namespace ExperimentWeb
@@ -14,6 +15,8 @@ namespace ExperimentWeb
     public class MvcApplication : System.Web.HttpApplication
     {
         public static IServiceBus Bus { get; set; }
+
+        public static List<MailData> MailSample { get; set; }
 
         protected void Application_Start()
         {
@@ -24,6 +27,7 @@ namespace ExperimentWeb
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             Bus = MassTransitInitializer.CreateBus("CustomerPortal_WebApp", x => { });
+            MailSample = MailData.GenerateMails(400);
         }
 
         protected void Application_End()

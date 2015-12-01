@@ -55,8 +55,25 @@ var ReservationsViewModel = (function () {
     };
     return ReservationsViewModel;
 })();
+var WebmailViewModel = (function () {
+    function WebmailViewModel() {
+        var _this = this;
+        this.goToFolder = function (folder) {
+            _this.chosenFolderId(folder);
+            $.get('/Knockout/GetMails', { folder: folder }, _this.chosenFolderData);
+        };
+        this.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
+        this.chosenFolderId = ko.observable();
+        this.chosenFolderData = ko.observable();
+        this.goToFolder("Inbox");
+    }
+    return WebmailViewModel;
+})();
+;
 $(document).ready(function () {
     var model = new ViewModel("Ronny", "Muliawan");
     ko.applyBindings(model, document.getElementById("example1"));
     ko.applyBindings(new ReservationsViewModel(), document.getElementById("example2"));
+    ko.applyBindings(new WebmailViewModel(), document.getElementById("example3"));
 });
+//# sourceMappingURL=knockout-main.js.map

@@ -76,8 +76,28 @@ class ReservationsViewModel {
     }
 }
 
+class WebmailViewModel {
+    // Data
+    folders: any;
+    chosenFolderId: any;
+    chosenFolderData: any;
+
+    constructor() {
+        this.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
+        this.chosenFolderId = ko.observable();
+        this.chosenFolderData = ko.observable();
+        this.goToFolder("Inbox");
+    }
+
+    goToFolder = (folder) => {
+        this.chosenFolderId(folder);
+        $.get('/Knockout/GetMails', { folder: folder }, this.chosenFolderData);
+    }
+};
+
 $(document).ready(() => {
     var model = new ViewModel("Ronny", "Muliawan");
     ko.applyBindings(model, document.getElementById("example1"));
     ko.applyBindings(new ReservationsViewModel(), document.getElementById("example2"));
+    ko.applyBindings(new WebmailViewModel(), document.getElementById("example3"));
 });

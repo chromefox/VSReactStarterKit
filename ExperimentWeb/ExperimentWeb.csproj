@@ -221,6 +221,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Comments.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MailData.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\HubService.cs" />
@@ -795,6 +796,7 @@
     <Content Include="data.json" />
     <Content Include="package.json" />
     <Content Include="bower.json" />
+    <Content Include="mail-data.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
