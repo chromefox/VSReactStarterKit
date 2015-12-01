@@ -28,6 +28,9 @@ namespace ExperimentWeb.Models
         [JsonProperty("folder")]
         public string Folder { get; set; }
 
+        [JsonProperty("messageContent")]
+        public string MessageContent { get; set; }
+
         public MailData(string folderName)
         {
             Folder = folderName;
@@ -36,6 +39,7 @@ namespace ExperimentWeb.Models
             To = $"To {Id}";
             Date = $"Jan - {Id}";
             Subject = $"Subject {Id}";
+            MessageContent = $"Message Content {Id}";
         }
 
         /// <summary>

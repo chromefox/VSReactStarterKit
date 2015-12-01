@@ -81,17 +81,26 @@ class WebmailViewModel {
     folders: any;
     chosenFolderId: any;
     chosenFolderData: any;
+    chosenMailData : any;
 
     constructor() {
         this.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
         this.chosenFolderId = ko.observable();
         this.chosenFolderData = ko.observable();
+        this.chosenMailData = ko.observable();
         this.goToFolder("Inbox");
     }
 
     goToFolder = (folder) => {
         this.chosenFolderId(folder);
+        this.chosenMailData(null); // Stop showing a folder
         $.get('/Knockout/GetMails', { folder: folder }, this.chosenFolderData);
+    }
+
+    goToMail = (mail) => {
+        this.chosenFolderId(mail.folder);
+        this.chosenFolderData(null); // Stop showing a folder
+        $.get("/Knockout/GetMail", { mailId: mail.id }, this.chosenMailData);
     }
 };
 

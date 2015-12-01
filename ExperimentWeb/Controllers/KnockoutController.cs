@@ -22,5 +22,18 @@ namespace ExperimentWeb.Controllers
             var mails = MvcApplication.MailSample;
             return Content(JsonConvert.SerializeObject(new MailResponse(folder, mails.Where(s => s.Folder.Equals(folder)).ToList())), "application/json");
         }
+
+        [HttpGet]
+        public ActionResult GetMail(string mailId)
+        {
+            var mails = MvcApplication.MailSample;
+
+            var mail = mails.SingleOrDefault(s => s.Id.Equals(mailId));
+
+            if (mail == null)
+                return HttpNotFound();
+
+            return Content(JsonConvert.SerializeObject(mail), "application/json");
+        }
     }
 }

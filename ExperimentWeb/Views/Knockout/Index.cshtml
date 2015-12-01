@@ -23,25 +23,26 @@
 
 <div id="example2">
     <h3>Seat Reservation Example</h3>
-    <h2>Your seat reservations (<span data-bind="text: seats().length"></span>)
+    <h2>
+        Your seat reservations (<span data-bind="text: seats().length"></span>)
     </h2>
 
     <table>
         <thead>
-        <tr>
-            <th>Passenger name</th>
-            <th>Meal</th>
-            <th>Surcharge</th>
-            <th></th>
-        </tr>
+            <tr>
+                <th>Passenger name</th>
+                <th>Meal</th>
+                <th>Surcharge</th>
+                <th></th>
+            </tr>
         </thead>
         <tbody data-bind="foreach: seats">
-        <tr>
-            <td><input data-bind="value: name"/></td>
-            <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
-            <td data-bind="text: formattedPrice"></td>
-            <td><a href="#" data-bind="click:  $root.removeSeat">Remove</a></td>
-        </tr>
+            <tr>
+                <td><input data-bind="value: name" /></td>
+                <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
+                <td data-bind="text: formattedPrice"></td>
+                <td><a href="#" data-bind="click:  $root.removeSeat">Remove</a></td>
+            </tr>
         </tbody>
     </table>
 
@@ -57,7 +58,7 @@
 
     <!-- Folders -->
     <ul class="folders" data-bind="foreach: folders">
-        <li data-bind="text: $data, 
+        <li data-bind="text: $data,
                css: { selected: $data == $root.chosenFolderId() },
                click: $root.goToFolder"></li>
     </ul>
@@ -65,7 +66,7 @@
     <table class="mails" data-bind="with: chosenFolderData">
         <thead><tr><th>From</th><th>To</th><th>Subject</th><th>Date</th></tr></thead>
         <tbody data-bind="foreach: mails">
-            <tr>
+            <tr data-bind="click: $root.goToMail">
                 <td data-bind="text: from"></td>
                 <td data-bind="text: to"></td>
                 <td data-bind="text: subject"></td>
@@ -73,6 +74,17 @@
             </tr>
         </tbody>
     </table>
+
+    <!-- Chosen mail -->
+    <div class="viewMail" data-bind="with: chosenMailData">
+        <div class="mailInfo">
+            <h1 data-bind="text: subject"></h1>
+            <p><label>From</label>: <span data-bind="text: from"></span></p>
+            <p><label>To</label>: <span data-bind="text: to"></span></p>
+            <p><label>Date</label>: <span data-bind="text: date"></span></p>
+        </div>
+        <p class="message" data-bind="html: messageContent" />
+    </div>
 </div>
 
 

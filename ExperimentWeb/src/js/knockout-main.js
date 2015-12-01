@@ -60,11 +60,18 @@ var WebmailViewModel = (function () {
         var _this = this;
         this.goToFolder = function (folder) {
             _this.chosenFolderId(folder);
+            _this.chosenMailData(null); // Stop showing a folder
             $.get('/Knockout/GetMails', { folder: folder }, _this.chosenFolderData);
+        };
+        this.goToMail = function (mail) {
+            _this.chosenFolderId(mail.folder);
+            _this.chosenFolderData(null); // Stop showing a folder
+            $.get("/Knockout/GetMail", { mailId: mail.id }, _this.chosenMailData);
         };
         this.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
         this.chosenFolderId = ko.observable();
         this.chosenFolderData = ko.observable();
+        this.chosenMailData = ko.observable();
         this.goToFolder("Inbox");
     }
     return WebmailViewModel;
@@ -76,4 +83,3 @@ $(document).ready(function () {
     ko.applyBindings(new ReservationsViewModel(), document.getElementById("example2"));
     ko.applyBindings(new WebmailViewModel(), document.getElementById("example3"));
 });
-//# sourceMappingURL=knockout-main.js.map
