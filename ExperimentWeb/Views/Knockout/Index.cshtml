@@ -4,16 +4,52 @@
 
 <h2>@ViewBag.Title</h2>
 
-<h3>Simple Demonstration taken from Knockout Tutorials</h3>
+<div id="example1">
+    <h3>Simple Demonstration taken from Knockout Tutorials</h3>
 
-<div class="alert alert-info">The form value and the output value's state is fully synchronized.</div>
+    <div class="alert alert-info">The form value and the output value's state is fully synchronized.</div>
 
-<p>First name: <input data-bind="value: firstName" /></p>
-<p>Last name: <input data-bind="value: lastName" /></p>
-<h2>Hello, <span data-bind="text: fullName"> </span>!
-</h2>
-<button data-bind="click: capitalizeLastName">Go caps</button>
+    <p>
+        First name: <input data-bind="value: firstName" />
+    </p>
+    <p>
+        Last name: <input data-bind="value: lastName" />
+    </p>
+    <h2>
+        Hello, <span data-bind="text: fullName"> </span>!
+    </h2>
+    <button data-bind="click: capitalizeLastName">Go caps</button>
+</div>
 
+<div id="example2">
+    <h3>Seat Reservation Example</h3>
+    <h2>Your seat reservations (<span data-bind="text: seats().length"></span>)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Passenger name</th>
+                <th>Meal</th>
+                <th>Surcharge</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: seats">
+            <tr>
+                <td><input data-bind="value: name" /></td>
+                <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
+                <td data-bind="text: formattedPrice"></td>
+                <td><a href="#" data-bind="click:  $root.removeSeat">Remove</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button data-bind="click: addSeat, enable: seats().length < 5">Reserve another seat</button>
+
+    <h3 data-bind="visible: totalSurcharge() > 0">
+        Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+    </h3>
+</div>
 @section scripts {
     <script src=@Url.Content("~/dist/js/dependencies.js")></script>
     <script src=@Url.Content("~/dist/js/main.js")></script>
