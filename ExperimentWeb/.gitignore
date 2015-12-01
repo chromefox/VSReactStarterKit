@@ -1,0 +1,6 @@
+## Ignore Node files and output files
+node_modules
+node_modules/
+dist
+dist/
+bundle.js
