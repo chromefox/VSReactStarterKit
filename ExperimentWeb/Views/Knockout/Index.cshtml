@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Knockout Labs";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Simple Demonstration taken from Knockout Tutorials</h3>
+
+<div class="alert alert-info">The form value and the output value's state is fully synchronized.</div>
+
+<p>First name: <input data-bind="value: firstName" /></p>
+<p>Last name: <input data-bind="value: lastName" /></p>
+<h2>Hello, <span data-bind="text: fullName"> </span>!
+</h2>
+<button data-bind="click: capitalizeLastName">Go caps</button>
+
+@section scripts {
+    <script src=@Url.Content("~/dist/js/dependencies.js")></script>
+    <script src=@Url.Content("~/dist/js/main.js")></script>
+}

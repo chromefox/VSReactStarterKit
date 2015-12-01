@@ -207,6 +207,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AngularController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KnockoutController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MassTransitController.cs" />
@@ -230,6 +231,11 @@
     <Content Include="bundle.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="dist\all.js" />
+    <Content Include="dist\all.min.js" />
+    <Content Include="dist\js\dependencies.js" />
+    <Content Include="dist\js\main.js" />
+    <Content Include="dist\src\main.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -788,6 +794,7 @@
     <Content Include="Scripts\ckeditorbasic\skins\moono\readme.md" />
     <Content Include="data.json" />
     <Content Include="package.json" />
+    <Content Include="bower.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -805,6 +812,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="src\js\knockout-main.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -854,6 +862,7 @@
     <Content Include="Views\Angular\Index.cshtml" />
     <Content Include="Views\React\Index.cshtml" />
     <Content Include="Views\TypeScript\Index.cshtml" />
+    <Content Include="Views\Knockout\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -875,6 +884,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\main-typescript.ts" />
+    <TypeScriptCompile Include="src\js\knockout-main.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

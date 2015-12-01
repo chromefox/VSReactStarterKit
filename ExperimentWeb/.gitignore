@@ -4,3 +4,7 @@ node_modules/
 dist
 dist/
 bundle.js
+bower_components
+bower_components/
+typings
+typings/
