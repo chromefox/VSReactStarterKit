@@ -48,7 +48,7 @@ class ReservationsViewModel {
         this.availableMeals = [
             { mealName: "Standard (sandwich)", price: 0 },
             { mealName: "Premium (lobster)", price: 34.95 },
-            { mealName: "Ultimate (whole zebra)", price: 290 }
+            { mealName: "Ultimate (whole zebra)", price: 390 }
         ];
 
         this.seats = ko.observableArray([
@@ -104,9 +104,65 @@ class WebmailViewModel {
     }
 };
 
-$(document).ready(() => {
+class Answer {
+    answerText: string;
+    points: any;
+
+    constructor(text: string) {
+        this.answerText = text;
+        this.points = ko.observable(1);
+    }
+}
+
+class SurveyViewModel {
+    question: any;
+    pointsBudget: any;
+    answers: any;
+    pointsUsed: any;
+
+    save() {
+        alert("To do");
+    }
+
+    constructor(question: string, pointsBudget: any, answers: any) {
+        this.question = question;
+        this.pointsBudget = pointsBudget;
+        this.answers = $.map(answers, text => new Answer(text));
+        this.pointsUsed = ko.computed(this.pointsUsedFn, this);
+    }
+
+    pointsUsedFn = () => {
+        var total = 0;
+        for (var i = 0; i < this.answers.length; i++)
+            total += this.answers[i].points();
+        return total;
+    }
+};
+
+$(document).ready(() => {    
+    
+    ko.bindingHandlers.fadeVisible = {
+        init: function (element, valueAccessor) {
+            // Start visible/invisible according to initial value
+            var shouldDisplay = valueAccessor();
+            $(element).toggle(shouldDisplay);
+        },
+        update: function (element, valueAccessor) {
+            // On update, fade in/out
+            var shouldDisplay = valueAccessor();
+            shouldDisplay ? $(element).fadeIn() : $(element).fadeOut();
+        }
+    };
+
+
     var model = new ViewModel("Ronny", "Muliawan");
     ko.applyBindings(model, document.getElementById("example1"));
     ko.applyBindings(new ReservationsViewModel(), document.getElementById("example2"));
     ko.applyBindings(new WebmailViewModel(), document.getElementById("example3"));
+    ko.applyBindings(new SurveyViewModel("Which factors affect your technology choices?", 10, [
+        "Functionality, compatibility, pricing - all that boring stuff",
+        "How often it is mentioned on Hacker News",
+        "Number of gradients/dropshadows on project homepage",
+        "Totally believable testimonials on project homepage"
+    ]), document.getElementById("example4"));
 });

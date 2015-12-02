@@ -7,6 +7,18 @@
   "installed": {
     "knockout/knockout.d.ts": {
       "commit": "e850b6ac0d59fee86dd7cb6a1be2caf6400bde14"
+    },
+    "jqueryui/jqueryui.d.ts": {
+      "commit": "9eed77aaea4a6f5f60d46a81ba7eb68ebe318f41"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "9eed77aaea4a6f5f60d46a81ba7eb68ebe318f41"
+    },
+    "jsdom/jsdom.d.ts": {
+      "commit": "9eed77aaea4a6f5f60d46a81ba7eb68ebe318f41"
+    },
+    "node/node.d.ts": {
+      "commit": "9eed77aaea4a6f5f60d46a81ba7eb68ebe318f41"
     }
   }
 }

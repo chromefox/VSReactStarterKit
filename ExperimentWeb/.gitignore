@@ -6,5 +6,5 @@ dist/
 bundle.js
 bower_components
 bower_components/
-typings
-typings/
+typings/*
+!typings/tsd.d.ts
