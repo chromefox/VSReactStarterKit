@@ -83,3 +83,4 @@ $(document).ready(function () {
     ko.applyBindings(new ReservationsViewModel(), document.getElementById("example2"));
     ko.applyBindings(new WebmailViewModel(), document.getElementById("example3"));
 });
+//# sourceMappingURL=knockout-main.js.map
