@@ -1,4 +1,4 @@
-﻿/// <reference path="jquery.d.ts" />
+﻿/// <reference path="../typings/tsd.d.ts" />
 
 class Student {
     fullname: string;

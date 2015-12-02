@@ -142,18 +142,23 @@ class SurveyViewModel {
 $(document).ready(() => {    
     
     ko.bindingHandlers.fadeVisible = {
-        init: function (element, valueAccessor) {
+        init: (element, valueAccessor) => {
             // Start visible/invisible according to initial value
             var shouldDisplay = valueAccessor();
             $(element).toggle(shouldDisplay);
         },
-        update: function (element, valueAccessor) {
+        update: (element, valueAccessor) => {
             // On update, fade in/out
             var shouldDisplay = valueAccessor();
             shouldDisplay ? $(element).fadeIn() : $(element).fadeOut();
         }
     };
 
+    ko.bindingHandlers.jqButton = {
+        init: (element) => {
+            $(element).button();
+        }
+    }
 
     var model = new ViewModel("Ronny", "Muliawan");
     ko.applyBindings(model, document.getElementById("example1"));

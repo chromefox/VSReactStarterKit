@@ -7,4 +7,5 @@
 
 interface KnockoutBindingHandlers {
     fadeVisible: KnockoutBindingHandler;
+    jqButton: KnockoutBindingHandler;
 }

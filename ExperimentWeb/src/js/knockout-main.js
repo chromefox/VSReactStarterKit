@@ -117,6 +117,11 @@ $(document).ready(function () {
             shouldDisplay ? $(element).fadeIn() : $(element).fadeOut();
         }
     };
+    ko.bindingHandlers.jqButton = {
+        init: function (element) {
+            $(element).button();
+        }
+    };
     var model = new ViewModel("Ronny", "Muliawan");
     ko.applyBindings(model, document.getElementById("example1"));
     ko.applyBindings(new ReservationsViewModel(), document.getElementById("example2"));
