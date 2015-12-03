@@ -1,9 +1,11 @@
-﻿/// <binding BeforeBuild='bowerComponents, devBuild' ProjectOpened='watch' />
+﻿/// <binding BeforeBuild='devBuild, npmComponents' ProjectOpened='watch' />
 // Include gulp
 var gulp = require('gulp');
-var browserify = require('gulp-browserify');
+var browserify = require('browserify');
+var watchify = require('watchify');
 
 // Include Our Plugins
+var assign = require('lodash.assign');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -12,6 +14,10 @@ var react = require('gulp-react');
 var htmlreplace = require('gulp-html-replace');
 var eslint = require('gulp-eslint');
 var mainBowerFiles = require('gulp-main-bower-files');
+var source = require('vinyl-source-stream');
+
+// To merge two different streams
+var es = require('event-stream');
 
 var path = {
     HTML: 'src/index.html',
@@ -20,9 +26,16 @@ var path = {
     MINIFIED_OUT: 'build.min.js',
     DEST_SRC: 'dist/src',
     DEST_BUILD: 'dist/build',
-    DEST: 'dist',
+    DEST: 'dist', 
     BOWER_PATH: 'bower_components/*.js'
 };
+
+// add custom browserify options here
+var customOpts = {
+    entries: ['./npm-dependency.js']    
+};
+var opts = assign({}, watchify.args, customOpts);
+var b = watchify(browserify(opts));
 
 gulp.task('transform', function () {
     gulp.src(path.JS)
@@ -59,17 +72,21 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest('dist'));
 });
 
-
-// build js.
-gulp.task('bowerComponents', function () {
-    return gulp.src('bower.json')
-        .pipe(mainBowerFiles())
-        .pipe(concat('dependencies.js'))
-        .pipe(gulp.dest('dist/js'));
+// building browser js from npm modules is recommended in this article https://gofore.com/ohjelmistokehitys/stop-using-bower/
+// build js from npm components
+gulp.task('npmComponents', function () {
+    return buildNpmStream();
 });
 
-// Watch Files For Changes
+// watch files for changes
 gulp.task('watch', function () {
     gulp.watch('Scripts/main.js', ['eslint']);
     gulp.watch(path.ALL, ['devBuild']);
 });
+
+function buildNpmStream() {
+    // demonstrates how to build module files from a defined npm module dependency file.
+    return b.bundle() // ??
+        .pipe(source('dependencies.js')) // rename the file to dependencies.js
+        .pipe(gulp.dest('dist/js')); // output the stream to destination path to dump the bundle.js
+}
