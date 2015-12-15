@@ -2,6 +2,12 @@
     ViewBag.Title = "Leaflet Labs";
 }
 
+<h2>@ViewBag.Title</h2>
+
+<div class="alert alert-info">
+    Look at the initialization js for more info.
+</div>
+
 <div id="map">
 
 </div>
@@ -12,14 +18,10 @@
 
 @section scripts {
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-
+    <script src="~/Scripts/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([51.505, -0.09], 13);
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-            maxZoom: 18,
-            id: 'ronnypm.oe842285',
-            accessToken: 'pk.eyJ1Ijoicm9ubnlwbSIsImEiOiJjaWk2c2dmbTEwMXVodGZrcXo4N2NicjdsIn0.FfllDwkgKRb100f65itaRA'
-        }).addTo(map);
+        $(document).ready(function (ev) {
+            $().LeafletProto().MainInit();
+        });
     </script>
 }
