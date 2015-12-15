@@ -26,3 +26,7 @@ textarea {
 .folders li.selected {
     background: lightblue;
 }
+
+#map {
+    height: 600px;
+}

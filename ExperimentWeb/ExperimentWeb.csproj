@@ -216,6 +216,7 @@
     <Compile Include="Controllers\AngularController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KnockoutController.cs" />
+    <Compile Include="Controllers\LeafletController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MassTransitController.cs" />
@@ -873,6 +874,7 @@
     <Content Include="Views\React\Index.cshtml" />
     <Content Include="Views\TypeScript\Index.cshtml" />
     <Content Include="Views\Knockout\Index.cshtml" />
+    <Content Include="Views\Leaflet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
