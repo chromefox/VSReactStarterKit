@@ -18,6 +18,7 @@ var source = require('vinyl-source-stream');
 
 // To merge two different streams
 var es = require('event-stream');
+var merge = require('merge-stream')();
 
 var path = {
     HTML: 'src/index.html',
@@ -75,7 +76,7 @@ gulp.task('scripts', function () {
 // building browser js from npm modules is recommended in this article https://gofore.com/ohjelmistokehitys/stop-using-bower/
 // build js from npm components
 gulp.task('npmComponents', function () {
-    return buildNpmStream();
+    return merge(buildNpmStream(), buildNpmCssStream());
 });
 
 // watch files for changes
@@ -89,4 +90,12 @@ function buildNpmStream() {
     return b.bundle() // ??
         .pipe(source('dependencies.js')) // rename the file to dependencies.js
         .pipe(gulp.dest('dist/js')); // output the stream to destination path to dump the bundle.js
+}
+
+function buildNpmCssStream() {
+    // demonstrates how to build module files from a defined npm module dependency file.
+    b.transform('browserify-css', { global: true });
+    return b.bundle() // ??
+        .pipe(source('dependencies.css')) // rename the file to dependencies.js
+        .pipe(gulp.dest('dist/css')); // output the stream to destination path to dump the bundle.js
 }

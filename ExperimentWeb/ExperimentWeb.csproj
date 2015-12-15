@@ -251,6 +251,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="gulpfile.js" />
     <Content Include="main.js" />
+    <Content Include="npm-dependency.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ckeditor2\adapters\jquery.js" />
@@ -821,7 +822,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="src\js\knockout-main.js" />
-    <Content Include="src\js\npm-dependency.js" />
+    <Content Include="npm-dependency.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -875,6 +876,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="dist\css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

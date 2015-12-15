@@ -4,3 +4,5 @@ global.$ = require('jquery');
 global.jQuery = global.$;
 var jqueryUI = require('jquery-ui');
 global.ko = require('knockout');
+
+require()
