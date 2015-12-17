@@ -46,6 +46,46 @@
         map.on('click', onMapClick);
     }
 
+    // Researched functions
+    function addMultipleMarkersWithAutoPopup() {
+        var markerContent = "<div class='map-popup'> <img src='http://orig08.deviantart.net/847f/f/2012/177/e/e/hello____mine_turtle_by_harrisonb32-d54we3i.jpg' width='100' height '100' /> <p>Haha</p> <input type='button' value='Click' /> </div>";
+
+        var marker = L.marker([51.52, -0.10]).addTo(map);
+        var marker1 = L.marker([51.55, -0.09213]).addTo(map);
+        var marker2 = L.marker([51.58, -0.09315]).addTo(map);
+
+        marker.bindPopup(markerContent).openPopup(); // automatically open the popup. Only one popup can be opened at any point of time.
+        marker1.bindPopup(markerContent);
+        marker2.bindPopup(markerContent);
+        
+    }
+
+    function handleEventsOnPopup() {
+        // binding on dynamically generated HTML/content.
+        $("body").on('click', '.map-popup input', function (ev) {
+            alert("A");
+        });
+    }
+
+    function handleSubmissionsOnPopup() {
+        // try an AJAX call
+    }
+
+    // have a special icon for markers
+    function addCustomMarkerIcon() {
+        // add an image and border for the marker button yet.
+    }
+
+    function addHoverEvent() {
+        // attempt to do something on marker hover. (open popup for example)
+    }
+
+    function dynamicallyRemapMarkers() {
+        // click button
+
+        // delete all markers and re-add new ones.
+    }
+
     function mainInit() {
         // initializing the map with a set lat/long
         map = L.map('map').setView([51.505, -0.09], 13);
@@ -64,6 +104,10 @@
         bindBasicPopupToMarkers();
         addStandalonePopup();
         addOnMapClickEvent();
+
+        // prototype functions
+        addMultipleMarkersWithAutoPopup();
+        handleEventsOnPopup();
     }
 
     $.fn.LeafletProto = function () {
