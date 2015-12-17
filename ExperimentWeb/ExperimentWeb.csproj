@@ -216,6 +216,7 @@
     <Compile Include="Controllers\AngularController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KnockoutController.cs" />
+    <Compile Include="Controllers\LeafletController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MassTransitController.cs" />
@@ -815,6 +816,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\leaflet.js" />
     <Content Include="Scripts\main-typescript.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -873,6 +875,7 @@
     <Content Include="Views\React\Index.cshtml" />
     <Content Include="Views\TypeScript\Index.cshtml" />
     <Content Include="Views\Knockout\Index.cshtml" />
+    <Content Include="Views\Leaflet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

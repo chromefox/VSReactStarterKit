@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Leaflet Labs";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="alert alert-info">
+    Look at the initialization js for more info.
+</div>
+
+<div id="map">
+
+</div>
+
+@section styles {
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+}
+
+@section scripts {
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="~/Scripts/leaflet.js"></script>
+    <script>
+        $(document).ready(function (ev) {
+            $().LeafletProto().MainInit();
+        });
+    </script>
+}
