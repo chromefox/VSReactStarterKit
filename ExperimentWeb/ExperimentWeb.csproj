@@ -238,6 +238,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Angular2\app\boot.ts" />
+    <TypeScriptCompile Include="Angular2\app\app.component.ts" />
+    <Content Include="Angular2\index.html" />
     <Content Include="bundle.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -805,6 +808,8 @@
     <Content Include="Scripts\ckeditorbasic\skins\moono\readme.md" />
     <Content Include="data.json" />
     <Content Include="package.json" />
+    <Content Include="Angular2\package.json" />
+    <Content Include="Angular2\tsconfig.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
