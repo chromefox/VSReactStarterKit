@@ -76,7 +76,7 @@ gulp.task('scripts', function () {
 // building browser js from npm modules is recommended in this article https://gofore.com/ohjelmistokehitys/stop-using-bower/
 // build js from npm components
 gulp.task('npmComponents', function () {
-    return merge(buildNpmStream(), buildNpmCssStream());
+    buildNpmStream();
 });
 
 // watch files for changes
