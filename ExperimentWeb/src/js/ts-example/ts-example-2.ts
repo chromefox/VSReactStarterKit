@@ -5,6 +5,6 @@
 
     init() {
         // enhances all tables
-        $('table').dataTable();
+        $('table').DataTable();
     }
 }

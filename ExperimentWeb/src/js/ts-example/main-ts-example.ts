@@ -1,7 +1,9 @@
-﻿import Tsexample1 = require("./ts-example-1");
+﻿'use strict';
+import Tsexample1 = require("./ts-example-1");
 import Tsexample2 = require("./ts-example-2");
 
-require('datatables.net');
+var $ = require('jquery');
+var dt = require('datatables.net')();
 
 class TypeScriptExampleMain
 {
