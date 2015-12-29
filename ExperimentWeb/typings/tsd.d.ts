@@ -10,3 +10,7 @@ interface KnockoutBindingHandlers {
     fadeVisible: KnockoutBindingHandler;
     jqButton: KnockoutBindingHandler;
 }
+
+interface Global {
+    $: any;
+}
