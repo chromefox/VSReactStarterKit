@@ -1,6 +1,4 @@
-﻿import $ = require('jQuery');
-
-export class Example1 {
+﻿export class Example1 {
     constructor() {
         // initialize code on documentReady jQuery style
         $(document).ready(this.init);

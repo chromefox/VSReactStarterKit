@@ -12,13 +12,16 @@
       "commit": "9eed77aaea4a6f5f60d46a81ba7eb68ebe318f41"
     },
     "jquery/jquery.d.ts": {
-      "commit": "9eed77aaea4a6f5f60d46a81ba7eb68ebe318f41"
+      "commit": "dc9dabe74a5be62613b17a3605309783a12ff28a"
     },
     "jsdom/jsdom.d.ts": {
       "commit": "9eed77aaea4a6f5f60d46a81ba7eb68ebe318f41"
     },
     "node/node.d.ts": {
       "commit": "9eed77aaea4a6f5f60d46a81ba7eb68ebe318f41"
+    },
+    "jquery.dataTables/jquery.dataTables.d.ts": {
+      "commit": "dc9dabe74a5be62613b17a3605309783a12ff28a"
     }
   }
 }

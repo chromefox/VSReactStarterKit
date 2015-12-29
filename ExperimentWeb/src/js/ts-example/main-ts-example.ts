@@ -1,11 +1,14 @@
-﻿/// <reference path="ts-example-1.ts" />
-import Tsexample1 = require("./ts-example-1");
+﻿import Tsexample1 = require("./ts-example-1");
+import Tsexample2 = require("./ts-example-2");
+
+require('datatables.net');
 
 class TypeScriptExampleMain
 {
     constructor() {
         // init all the different modules
         new Tsexample1.Example1();
+        new Tsexample2.Example2();
     }
 }
 
