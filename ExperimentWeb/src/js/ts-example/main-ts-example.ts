@@ -2,7 +2,7 @@
 import Tsexample1 = require("./ts-example-1");
 import Tsexample2 = require("./ts-example-2");
 
-var $ = require('jquery');
+global.$ = require('jquery');
 var dt = require('datatables.net')();
 
 class TypeScriptExampleMain
