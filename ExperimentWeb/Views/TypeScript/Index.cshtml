@@ -30,7 +30,7 @@
     var user = new Student("Jane", "M.", "User");
 
     $(document).ready(function () {
-        $("#ts-content").html(greeter(user));
+    $("#ts-content").html(greeter(user));
     });
 </code>
 
@@ -39,10 +39,17 @@
 
 </div>
 
-<h3>
+<h3></h3>
 
-</h3>
 
+<h3>The following section demonstrates TypeScript integration with node and Browserify for pure JavaScript invocations and dependencies.</h3>
+
+<h4>1. Using node, browserify, jQuery and TypeScript together.</h4>
+<div class="alert alert-info">In the simple example below, we are using jQuery as a module import in TypeScript (+ the definition of course) to add content and some simple red background in the container below.</div>
+<div id="ts-example-1">
+
+</div>
 @section Scripts {
     <script src="~/Scripts/main-typescript.js"></script>
+    <script src="~/dist/js/typescript-example.js"></script>
 }

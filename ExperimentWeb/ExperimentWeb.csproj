@@ -903,6 +903,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\main-typescript.ts" />
     <TypeScriptCompile Include="src\js\knockout-main.ts" />
+    <TypeScriptCompile Include="src\js\ts-example\main-ts-example.ts" />
+    <TypeScriptCompile Include="src\js\ts-example\ts-example-1.ts" />
     <TypeScriptCompile Include="typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
