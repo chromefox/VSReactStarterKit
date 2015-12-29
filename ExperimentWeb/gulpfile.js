@@ -89,6 +89,10 @@ gulp.task('typescript-example', function () {
     return browserifyTsExampleOutput();
 });
 
+gulp.task('typescript-example-style', function () {
+    return buildTsExampleCss();
+});
+
 function buildNpmStream() {
     // demonstrates how to build module files from a defined npm module dependency file.
     return b.bundle() // ??
@@ -117,4 +121,13 @@ function browserifyTsExampleOutput() {
         .pipe(source('typescript-example.js')) // Desired filename
         // Output the file
         .pipe(gulp.dest('dist/js'));
+}
+
+function buildTsExampleCss() {
+    var tsPath = "./node_modules/datatables.net-bs/css/dataTables.bootstrap.css";
+    return gulp.src(tsPath)
+        // vinyl-source-stream makes the bundle compatible with gulp
+        .pipe(rename('typescript-example.css')) // Desired filename
+        // Output the file
+        .pipe(gulp.dest('dist/css'));
 }

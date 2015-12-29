@@ -1,5 +1,5 @@
 ﻿/// <reference path="../../../typings/tsd.d.ts" />
-require('datatables.net')();
+require('datatables.net-bs')();
 
 export class Example2 {
     constructor() {
