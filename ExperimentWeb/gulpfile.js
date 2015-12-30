@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='devBuild' ProjectOpened='watch' />
+/// <binding ProjectOpened='watch' />
 // Include gulp
 var gulp = require('gulp');
 var browserify = require('browserify');
