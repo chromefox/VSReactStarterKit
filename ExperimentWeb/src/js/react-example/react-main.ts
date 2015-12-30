@@ -8,7 +8,7 @@ import reactEx1 = require("./react-example");
 
 class ReactExampleMain {
     instruction: string = "Hello from React! The Datatable initialization and components are all created via React and JS." +
-    "For the purposes of demo, the onclick events are all attached from the React component itself." +
+    "For the purposes of demo, the onclick events are all attached from the React component itself (Please click the table's name column)." +
     "For jQuery plugins integration, I think it is much safer to integrate the onclick via the plugin API.";
 
     data: Array<Object> = [

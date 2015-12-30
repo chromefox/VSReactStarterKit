@@ -15,8 +15,6 @@ var AlertComponent = React.createClass({
     }
 });
 
-
-
 var TableComponent = React.createClass({
     render() {
         var rows = this.props.data.map(row => {
