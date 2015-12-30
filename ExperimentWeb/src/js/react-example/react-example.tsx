@@ -15,20 +15,24 @@ var AlertComponent = React.createClass({
     }
 });
 
+
+
 var TableComponent = React.createClass({
     render() {
         var rows = this.props.data.map(row => {
-            return (<tr>
-                <td>
-                    {row.name}
+            return (
+                <tr key={row.name}>
+                    <td onClick={this.clickHandler }>
+                        {row.name}
                     </td>
                     <td>
-                    {row.email}
-                        </td>
+                        {row.email}
+                    </td>
                     <td>
-                    {row.year}
-                        </td>
-                </tr>);
+                        {row.year}
+                    </td>
+                </tr>
+            );
         });
 
         return (
@@ -45,6 +49,19 @@ var TableComponent = React.createClass({
             </tbody>
                 </table>
         );
+    },
+    clickHandler() {
+        alert("I am clicked");
+    }
+});
+
+var D3Component = React.createClass({
+    render() {
+        return (
+            <div>
+
+             </div>
+            );
     }
 });
 
@@ -54,6 +71,7 @@ var PageComponent = React.createClass({
             <div>
                 <AlertComponent text={this.props.alertText} />
                 <TableComponent data={this.props.tableData} />
+                <D3Component />
             </div>
         );
     }
