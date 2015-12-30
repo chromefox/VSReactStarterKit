@@ -4,8 +4,13 @@
 /// <reference path="jqueryui/jqueryui.d.ts" />
 /// <reference path="jsdom/jsdom.d.ts" />
 /// <reference path="node/node.d.ts" />
+/// <reference path="jquery.dataTables/jquery.dataTables.d.ts" />
 
 interface KnockoutBindingHandlers {
     fadeVisible: KnockoutBindingHandler;
     jqButton: KnockoutBindingHandler;
+}
+
+interface Global {
+    $: any;
 }

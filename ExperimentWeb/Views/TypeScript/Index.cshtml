@@ -30,7 +30,7 @@
     var user = new Student("Jane", "M.", "User");
 
     $(document).ready(function () {
-        $("#ts-content").html(greeter(user));
+    $("#ts-content").html(greeter(user));
     });
 </code>
 
@@ -39,10 +39,82 @@
 
 </div>
 
-<h3>
+<h3>The following section demonstrates TypeScript integration with node and Browserify for pure JavaScript invocations and dependencies.</h3>
 
-</h3>
+<h4>1. Using node, browserify, jQuery and TypeScript together.</h4>
+<div class="alert alert-info">In the simple example below, we are using jQuery as a module import in TypeScript (+ the definition of course) to add content and some simple red background in the container below.</div>
+
+<div id="ts-example-1">
+
+</div>
+
+<div class="alert alert-info">Essentially, typescript-example.js is the "Browserify" bundled version of my TypeScriptMain class. Inside TypeScriptMain class, I initialized my modular "export" classes to invoke multiple functions on the side.</div>
+
+<h4>2. Adding on DataTable and it's corresponding display requirements (css) etc.</h4>
+<div class="alert alert-info">
+    <p>In the simple example below, we initialized a full datatable feature. Checkout ts-example-2.ts (Example2) class inside src/js/ts-example for more details.</p>
+    <p>
+        The complexity often comes for the display dependencies (i.e. css, scss, images, fonts). There doesn't seem to be any easy way to include this other than to do the usual picking of css manually from inside the node_modules path.
+        Check out the gulpfile buildTsExampleCss function for more details on how the imports are done.
+        Essentially, we are fetching all our dependencies with a full hierarchy into our "dist" folders. This ensures that all relative URLs stay intact.
+    </p>
+</div>
+
+<div id="ts-example-2">
+    <table class="dataTable table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Alpha
+                </td>
+                <td>
+                    Alpha@email.com
+                </td>
+                <td>
+                    1990
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Beta
+                </td>
+                <td>
+                    Beta@email.com
+                </td>
+                <td>
+                    1989
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Charlie
+                </td>
+                <td>
+                    Charlie@email.com
+                </td>
+                <td>
+                    1985
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 @section Scripts {
     <script src="~/Scripts/main-typescript.js"></script>
+    <script src="~/dist/js/typescript-example.js"></script>
+    <!-- The most basic working binding of jQuery plugin (e.g. datatable) with jQuery.-->
+    @*<script src="~/browserify-result.js"></script>*@
+}
+
+@section styles
+{
+    <link href="~/dist/css/typescript-example.css" rel="stylesheet" />
 }

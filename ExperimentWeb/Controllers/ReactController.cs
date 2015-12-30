@@ -27,5 +27,10 @@ namespace ExperimentWeb.Controllers
             System.IO.File.WriteAllText(path, newContent);
             return Content(newContent, "application/json");
         }
+
+        public ActionResult MyExample1()
+        {
+            return View();
+        }
     }
 }
