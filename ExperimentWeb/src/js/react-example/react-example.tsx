@@ -5,25 +5,21 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-export class InfoBox {
-    reactComponent:any;
-
-    constructor() {
-        this.reactComponent = React.createClass({
-            render() {
-                return (
-                    <div className="alert alert-info">
+var AlertComponent = React.createClass({
+    render() {
+        return (
+            <div className="alert alert-info">
                        {this.props.text}
-                        </div>
-                );
-            }
-        });
+                </div>
+        );
     }
+});
 
+export class InfoBox {
     domRender(domId: string, domText: string) {
         ReactDOM.render(
-            <reactComponent url="/data.json" submitUrl="/React/CreateComment" pollInterval={2000} />,
-            document.getElementById('content')
+            <AlertComponent text={domText} />,
+            document.getElementById(domId)
         );
     }
 }
