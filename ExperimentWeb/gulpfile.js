@@ -93,6 +93,10 @@ gulp.task('typescript-example-style', function () {
     return buildTsExampleCss();
 });
 
+gulp.task('react-js-example', function () {
+    return browserifyReactOutput();
+});
+
 function buildNpmStream() {
     // demonstrates how to build module files from a defined npm module dependency file.
     return b.bundle() // ??
@@ -130,4 +134,11 @@ function buildTsExampleCss() {
         .pipe(rename('typescript-example.css')) // Desired filename
         // Output the file
         .pipe(gulp.dest('dist/css'));
+}
+
+function browserifyReactOutput() {
+    var reactPath = "src/js/react-example/react-main.js";
+    return browserify(reactPath).bundle()
+        .pipe(source('react-example.js')) // Desired filename
+        .pipe(gulp.dest('dist/js'));
 }

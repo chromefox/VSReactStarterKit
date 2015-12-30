@@ -12,7 +12,7 @@
     "babel-preset-react": "^6.1.18",
     "babelify": "^7.2.0",
     "browserify": "^12.0.1",
-    "browserify-shim": "^3.8.11",    
+    "browserify-shim": "^3.8.11",
     "datatables.net-bs": "^1.10.10",
     "jquery": "^2.1.4",
     "jquery-ui": "^1.10.5",
@@ -20,7 +20,8 @@
     "marked": "^0.3.5",
     "merge-stream": "^1.0.0",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "requirejs": "^2.1.22"
   },
   "devDependencies": {
     "browserify-css": "^0.8.1",
