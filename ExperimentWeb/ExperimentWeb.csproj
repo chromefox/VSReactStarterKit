@@ -888,6 +888,7 @@
     <Content Include="Views\React\ReactEcosystemCheck.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Angular2\app\" />
     <Folder Include="App_Data\" />
     <Folder Include="dist\css\" />
   </ItemGroup>
@@ -906,8 +907,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Angular2\app\app.component.ts" />
-    <TypeScriptCompile Include="Angular2\app\boot.ts" />
     <TypeScriptCompile Include="Scripts\main-typescript.ts" />
     <TypeScriptCompile Include="src\js\knockout-main.ts" />
     <TypeScriptCompile Include="src\js\react-example\react-main.ts" />
