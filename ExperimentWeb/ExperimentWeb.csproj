@@ -914,6 +914,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\main-typescript.ts" />
     <TypeScriptCompile Include="src\js\knockout-main.ts" />
+    <TypeScriptCompile Include="src\js\react-ecosystem\components\container.tsx" />
     <TypeScriptCompile Include="src\js\react-ecosystem\components\map-section.tsx" />
     <TypeScriptCompile Include="src\js\react-ecosystem\components\left-section.tsx" />
     <TypeScriptCompile Include="src\js\react-ecosystem\react-ecosystem.ts" />
