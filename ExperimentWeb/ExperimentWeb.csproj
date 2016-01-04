@@ -917,7 +917,7 @@
     <TypeScriptCompile Include="src\js\react-ecosystem\components\container.tsx" />
     <TypeScriptCompile Include="src\js\react-ecosystem\components\map-section.tsx" />
     <TypeScriptCompile Include="src\js\react-ecosystem\components\left-section.tsx" />
-    <TypeScriptCompile Include="src\js\react-ecosystem\react-ecosystem.ts" />
+    <TypeScriptCompile Include="src\js\react-ecosystem\react-ecosystem.tsx" />
     <TypeScriptCompile Include="src\js\react-example\react-main.ts" />
     <TypeScriptCompile Include="src\js\react-example\react-example.tsx" />
     <TypeScriptCompile Include="src\js\ts-example\main-ts-example.ts" />

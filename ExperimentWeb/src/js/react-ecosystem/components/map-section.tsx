@@ -19,9 +19,15 @@ export class Map {
 
     constructor() {}
 
-    addNewMarker(globalMap) {
-        var markerContent = "<div>New Popup</div>";
+    addRandomNewMarker(globalMap) {
+        var markerContent = "<div>New random Popup</div>";
         var marker = L.marker([51.55, -0.13]).addTo(globalMap);
+        marker.bindPopup(markerContent).openPopup();
+    }
+
+    addNewMarker(lat : number, long : number) {
+        var markerContent = "<div>New non random marker</div>";
+        var marker = L.marker([lat, long]).addTo(global.map);
         marker.bindPopup(markerContent).openPopup();
     }
 

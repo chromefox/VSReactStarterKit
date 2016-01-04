@@ -29,19 +29,33 @@ var MapComponent = React.createClass({
 
 var LeftComponent = React.createClass({
     getInitialState() {
-        return { title: "N/A" };
+        return { title: "N/A", lat: 0, long: 0 };
     },
     handleClick(titleStr) {
+        // e.g. can go and get AJAX calls to get more details (or passed from the caller)
         this.setState({ title: titleStr });
     },
+    addRandomMapMarker() {
+        global.mapClass.addRandomNewMarker(global.map);
+    },
     addMapMarker() {
-        global.mapClass.addNewMarker(global.map);
+        global.mapClass.addNewMarker(this.state.lat,this.state.long);
+    },
+    handleChangeLat(event) {
+        this.setState({ lat: event.target.value});
+    },
+    handleChangeLong(event) {
+        this.setState({ long: event.target.value });
     },
     render() {
         return (
             <div id="left-section" className="col-lg-6">
-                        <h3>Create a new marker</h3>
+                        <h3>Create a new marker at random location</h3>
                         <button id="newMarkerDemo" className="button" onClick={this.addMapMarker} >Click</button>
+                        <h3>Create a marker at the specified location</h3>
+                        <label>Lat</label> <input type="text" value={this.state.lat} onChange={this.handleChangeLat}/>
+                        <label>Long</label> <input type= "text" value= {this.state.long} onChange={this.handleChangeLong} /> 
+                        <button className="button" onClick={this.addMapMarker} >Click here</button>
                         <h3>Details section</h3>
                         <div id="markerDetail">{this.state.title}</div>
                 </div>

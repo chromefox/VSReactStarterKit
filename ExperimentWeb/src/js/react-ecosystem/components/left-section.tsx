@@ -11,7 +11,7 @@ export class LeftSection {
                 this.setState({ title: titleStr });
             },
             addMapMarker() {
-                global.mapClass.addNewMarker(global.map);
+                global.mapClass.addRandomNewMarker(global.map);
             },
             render() {
                 return (
