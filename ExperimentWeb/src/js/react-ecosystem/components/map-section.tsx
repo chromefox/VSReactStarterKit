@@ -105,7 +105,7 @@ export class Map {
             //    <LeftContainerDetails />,
             //    document.getElementById("markerDetail")
             //);
-            global.leftClass.handleClick(Math.random());
+            global.updateDetailFunction(Math.random());
         });
     }
 

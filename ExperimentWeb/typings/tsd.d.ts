@@ -17,4 +17,5 @@ interface Global {
     map: any;
     mapClass : any;
     leftClass : any;
+    updateDetailFunction : any;
 }
