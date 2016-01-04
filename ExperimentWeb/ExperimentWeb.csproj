@@ -238,6 +238,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LeafletImages\layers-2x.png" />
+    <Content Include="LeafletImages\layers.png" />
+    <Content Include="LeafletImages\marker-icon-2x.png" />
+    <Content Include="LeafletImages\marker-icon.png" />
+    <Content Include="LeafletImages\marker-shadow.png" />
     <Content Include="Views\React\MyExample1.cshtml" />
     <Content Include="Angular2\index.html" />
     <Content Include="browserify-test.js" />
@@ -909,6 +914,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\main-typescript.ts" />
     <TypeScriptCompile Include="src\js\knockout-main.ts" />
+    <TypeScriptCompile Include="src\js\react-ecosystem\components\map-section.tsx" />
+    <TypeScriptCompile Include="src\js\react-ecosystem\components\left-section.tsx" />
+    <TypeScriptCompile Include="src\js\react-ecosystem\react-ecosystem.ts" />
     <TypeScriptCompile Include="src\js\react-example\react-main.ts" />
     <TypeScriptCompile Include="src\js\react-example\react-example.tsx" />
     <TypeScriptCompile Include="src\js\ts-example\main-ts-example.ts" />

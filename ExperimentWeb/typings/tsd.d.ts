@@ -13,4 +13,5 @@ interface KnockoutBindingHandlers {
 
 interface Global {
     $: any;
+    L: any;
 }

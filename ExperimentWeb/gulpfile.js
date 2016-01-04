@@ -97,6 +97,10 @@ gulp.task('react-js-example', function () {
     return browserifyReactOutput();
 });
 
+gulp.task('react-prototype', function () {
+    return browserifyPrototype();
+});
+
 function buildNpmStream() {
     // demonstrates how to build module files from a defined npm module dependency file.
     return b.bundle() // ??
@@ -140,5 +144,12 @@ function browserifyReactOutput() {
     var reactPath = "src/js/react-example/react-main.js";
     return browserify(reactPath).bundle()
         .pipe(source('react-example.js')) // Desired filename
+        .pipe(gulp.dest('dist/js'));
+}
+
+function browserifyPrototype() {
+    var reactPath = "src/js/react-ecosystem/react-ecosystem.js";
+    return browserify(reactPath).bundle()
+        .pipe(source('react-prototype.js')) // Desired filename
         .pipe(gulp.dest('dist/js'));
 }
