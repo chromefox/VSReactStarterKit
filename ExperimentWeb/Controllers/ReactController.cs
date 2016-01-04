@@ -32,5 +32,10 @@ namespace ExperimentWeb.Controllers
         {
             return View();
         }
+
+        public ActionResult ReactEcosystemCheck()
+        {
+            return View();
+        }
     }
 }

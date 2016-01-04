@@ -885,6 +885,7 @@
     <Content Include="Views\TypeScript\Index.cshtml" />
     <Content Include="Views\Knockout\Index.cshtml" />
     <Content Include="Views\Leaflet\Index.cshtml" />
+    <Content Include="Views\React\ReactEcosystemCheck.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
