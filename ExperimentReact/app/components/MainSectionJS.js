@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class MainSection extends Component {
+export default class MainSectionJS extends Component {
     render() {
         return (
           <section className='main'>
-            Static hello
+            Main Section rendered via JS
           </section>
       );
     }
