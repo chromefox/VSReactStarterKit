@@ -238,8 +238,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LeafletImages\layers-2x.png" />
+    <Content Include="LeafletImages\layers.png" />
+    <Content Include="LeafletImages\marker-icon-2x.png" />
+    <Content Include="LeafletImages\marker-icon.png" />
+    <Content Include="LeafletImages\marker-shadow.png" />
     <Content Include="Views\React\MyExample1.cshtml" />
-    <Content Include="tsconfig.json" />
     <Content Include="Angular2\index.html" />
     <Content Include="browserify-test.js" />
     <Content Include="bundle.js" />
@@ -886,8 +890,10 @@
     <Content Include="Views\TypeScript\Index.cshtml" />
     <Content Include="Views\Knockout\Index.cshtml" />
     <Content Include="Views\Leaflet\Index.cshtml" />
+    <Content Include="Views\React\ReactEcosystemCheck.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Angular2\app\" />
     <Folder Include="App_Data\" />
     <Folder Include="dist\css\" />
   </ItemGroup>
@@ -906,10 +912,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Angular2\app\app.component.ts" />
-    <TypeScriptCompile Include="Angular2\app\boot.ts" />
     <TypeScriptCompile Include="Scripts\main-typescript.ts" />
     <TypeScriptCompile Include="src\js\knockout-main.ts" />
+    <TypeScriptCompile Include="src\js\react-ecosystem\components\container.tsx" />
+    <TypeScriptCompile Include="src\js\react-ecosystem\components\map-section.tsx" />
+    <TypeScriptCompile Include="src\js\react-ecosystem\components\left-section.tsx" />
+    <TypeScriptCompile Include="src\js\react-ecosystem\react-ecosystem.tsx" />
+    <TypeScriptCompile Include="src\js\react-example\react-main.ts" />
+    <TypeScriptCompile Include="src\js\react-example\react-example.tsx" />
     <TypeScriptCompile Include="src\js\ts-example\main-ts-example.ts" />
     <TypeScriptCompile Include="src\js\ts-example\ts-example-2.ts" />
     <TypeScriptCompile Include="src\js\ts-example\ts-example-1.ts" />
@@ -925,15 +935,15 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
-    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
-    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptModuleKind>None</TypeScriptModuleKind>
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
     <TypeScriptOutFile />
     <TypeScriptOutDir />
     <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
-    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptNoEmitOnError>False</TypeScriptNoEmitOnError>
     <TypeScriptSourceMap>True</TypeScriptSourceMap>
     <TypeScriptMapRoot />
     <TypeScriptSourceRoot />

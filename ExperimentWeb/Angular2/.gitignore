@@ -1,0 +1,5 @@
+## Ignore all output files such as js
+*
+!.gitignore
+!*.tsx
+
