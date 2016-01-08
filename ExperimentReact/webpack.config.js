@@ -1,13 +1,6 @@
 /// <binding ProjectOpened='Hot' />
 var path = require('path');
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var pkg = require('./package.json');
-
-// bundle dependencies in separate vendor bundle
-var vendorPackages = Object.keys(pkg.dependencies).filter(function (el) {
-    return el.indexOf('font') === -1; // exclude font packages from vendor bundle
-});
 
 module.exports = {
     devServer: {
