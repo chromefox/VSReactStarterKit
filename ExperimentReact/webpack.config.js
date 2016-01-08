@@ -20,28 +20,11 @@ module.exports = {
           'webpack-dev-server/client?http://localhost:3000',
           'webpack/hot/only-dev-server',
           './app/index'
-        ],
-        vendor: vendorPackages
+        ]
     },
     output: {
         path: path.join(__dirname, 'build'),
         filename: '[name].js'
-    },
-    plugins: [
-      new webpack.DefinePlugin({
-          __API_URL__: JSON.stringify(process.env.API_URL || '//localhost:51407')
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-          name: 'vendor',
-          filename: 'vendor.js',
-          minChunks: Infinity
-      }),
-      new HtmlWebpackPlugin({
-          template: 'index.html'
-      })
-    ],
-    resolveLoader: {
-        'fallback': path.join(__dirname, 'node_modules')
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
