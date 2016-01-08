@@ -1,0 +1,10 @@
+## Ignore Node files and output files
+node_modules
+node_modules/
+dist
+dist/
+bundle.js
+bower_components
+bower_components/
+typings/*
+!typings/tsd.d.ts

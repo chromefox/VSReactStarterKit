@@ -1,0 +1,31 @@
+{
+  "name": "VS React Experiment - Typescript / SASS mixins",
+  "version": "1.0.0",
+  "description": "VS 2015, React, Typescript, SASS, CSS mixins",
+  "main": "server.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.js --hot --progress --colors",
+    "build": "webpack --config webpack.config.js --progress --profile --colors",
+    "prod": "webpack -p --config webpack.prod.config.js --progress --colors"
+  },
+  "dependencies": {
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.4.0",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "css-loader": "^0.23.1",    
+    "raw-loader": "^0.5.1",
+    "react-hot-loader": "^1.3.0",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "todomvc-app-css": "^2.0.3",
+    "ts-loader": "^0.7.2",
+    "typescript": "^1.7.5",
+    "webpack": "^1.12.10",
+    "webpack-dev-server": "^1.14.0"
+  }
+}

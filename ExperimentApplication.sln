@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentService", "Experi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentLibrary", "ExperimentLibrary\ExperimentLibrary.csproj", "{83E56DFA-1870-4C82-AA90-38B06BC722F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentReact", "ExperimentReact\ExperimentReact.csproj", "{6CFEC01B-B5AD-4FCF-9585-C0E6EAE6110A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{83E56DFA-1870-4C82-AA90-38B06BC722F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E56DFA-1870-4C82-AA90-38B06BC722F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83E56DFA-1870-4C82-AA90-38B06BC722F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CFEC01B-B5AD-4FCF-9585-C0E6EAE6110A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CFEC01B-B5AD-4FCF-9585-C0E6EAE6110A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CFEC01B-B5AD-4FCF-9585-C0E6EAE6110A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CFEC01B-B5AD-4FCF-9585-C0E6EAE6110A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
