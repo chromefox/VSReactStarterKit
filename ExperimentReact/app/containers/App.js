@@ -7,7 +7,7 @@ export default class App extends Component {
         return (
           <div>
             <h3>
-              Hello World! 2 
+              Hello React Labs!
             </h3>
             <MainSectionJS /> 
             <MainSectionTSX /> 
