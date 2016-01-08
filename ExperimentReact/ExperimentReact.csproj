@@ -73,6 +73,8 @@
     <Content Include="package.json" />
     <Content Include="tsd.json" />
     <Content Include="tsconfig.json" />
+    <Content Include="app\styles\main.scss" />
+    <Content Include="app\styles\content.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

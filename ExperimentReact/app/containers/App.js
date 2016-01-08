@@ -4,7 +4,7 @@ import MainSectionTSX from '../components/MainSectionTSX'
 
 export default class App extends Component {
     render() {
-        return (
+        return ( 
           <div>
             <h3>
               Hello React Labs!
@@ -15,4 +15,4 @@ export default class App extends Component {
         );
     }
 }
- 
+  

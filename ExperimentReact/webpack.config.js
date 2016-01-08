@@ -45,10 +45,15 @@ module.exports = {
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.scss','.css']
     },
     module: {
         loaders: [
+             {
+                 test: /\.scss$/,
+                 loaders: ["style", "css", "sass"],
+                 exclude: /node_modules/,
+             },
               // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
             {
                 test: /\.ts(x?)$/,
