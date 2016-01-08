@@ -75,6 +75,8 @@
     <Content Include="tsconfig.json" />
     <Content Include="app\styles\main.scss" />
     <Content Include="app\styles\content.scss" />
+    <Content Include="app\styles\shared.scss" />
+    <Content Include="app\styles\youthcorpssg.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
