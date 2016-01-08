@@ -1,12 +1,14 @@
-﻿ class MainSection extends React.Component<{}, {}> {
+﻿import * as React from 'react';
+
+class MainSectionTSX extends React.Component<{}, {}> {
 
     render() {
         return (
             <section className="main">
                 Main Section from TSX
-                </section>
+              </section>
         );
     }
 }
 
-export default MainSection;
+export default MainSectionTSX;

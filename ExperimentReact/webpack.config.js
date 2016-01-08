@@ -43,8 +43,18 @@ module.exports = {
     resolveLoader: {
         'fallback': path.join(__dirname, 'node_modules')
     },
+    resolve: {
+        // Add `.ts` and `.tsx` as a resolvable extension.
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+    },
     module: {
         loaders: [
+              // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+            {
+                test: /\.ts(x?)$/,
+                loaders: ['react-hot', 'babel-loader', 'ts-loader'],
+                exclude: /node_modules/,
+            },
             {
                 test: /\.js$/,
                 loaders: ['react-hot', 'babel-loader'],

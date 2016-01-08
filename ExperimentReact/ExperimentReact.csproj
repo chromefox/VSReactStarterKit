@@ -72,6 +72,7 @@
     <Content Include=".babelrc" />
     <Content Include="package.json" />
     <Content Include="tsd.json" />
+    <Content Include="tsconfig.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -92,7 +93,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app\components\MainSectionTSX.tsx" />
+    <None Include="app\components\MainSectionTSX.tsx" />
     <TypeScriptCompile Include="typings\react\react-addons-create-fragment.d.ts" />
     <TypeScriptCompile Include="typings\react\react-addons-css-transition-group.d.ts" />
     <TypeScriptCompile Include="typings\react\react-addons-linked-state-mixin.d.ts" />
