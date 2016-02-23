@@ -23,8 +23,10 @@ namespace ExperimentApplication
             //var databaseContainer = container.GetInstance<DatabaseService>();
             //// databaseContainer.InitialSetup();
             //databaseContainer.TestUserCascadeDelete();
+            Console.Write("Start executing...");
 
-            ConceptualClarifications.TestRefConceptObject();
+            EPPlusUsageRepo.EditNamedCellInformation();
+
             Console.Write("Finished executing...");
             Console.ReadLine();
         }
