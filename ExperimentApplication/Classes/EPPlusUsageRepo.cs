@@ -32,7 +32,7 @@ namespace ExperimentApplication.Classes
                     for (var col = start.Column; col <= end.Column; col++)
                     {
                         // ... Cell by cell...
-                        var cellValue = ws.Cells[row, col].Text; // This got me the actual value I needed.
+                        var cellValue = ws.Cells[row, col].Value; // This got me the actual value I needed.
                         Console.WriteLine($"Row {row} Column {table.Columns[col - 1].Name}: {cellValue}");
                     }
                 }
@@ -79,6 +79,11 @@ namespace ExperimentApplication.Classes
                 tableElement.Attributes["ref"].Value = newRange;
                 tableElement["autoFilter"].Attributes["ref"].Value = newRange;
 
+                // attempt to format datetime column with defined format
+                using (var rng = ws.Cells[$"E1:E{outRange.End.Row}"])
+                {
+                    rng.Style.Numberformat.Format = "dd/MM/yyyy HH:mm";
+                }
                 package.SaveAs(newFile);
             }
         }
@@ -90,6 +95,8 @@ namespace ExperimentApplication.Classes
             // Declare variables for DataColumn and DataRow objects.
             DataColumn column;
             DataRow row;
+
+            // order of column definition is important!!.
 
             // Create new DataColumn, set DataType, 
             // ColumnName and add to DataTable.    
@@ -130,6 +137,15 @@ namespace ExperimentApplication.Classes
             // Add the column to the table.
             table.Columns.Add(column);
 
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.DateTime");
+            column.ColumnName = "Signup";
+            column.AutoIncrement = false;
+            column.ReadOnly = false;
+            column.Unique = false;
+            // Add the column to the table.
+            table.Columns.Add(column);
+
             // Make the ID column the primary key column.
             DataColumn[] PrimaryKeyColumns = new DataColumn[1];
             PrimaryKeyColumns[0] = table.Columns["Name"];
@@ -144,6 +160,7 @@ namespace ExperimentApplication.Classes
                 row["Email"] = $"Email:{i}";
                 row["Address"] = $"Address:{i}";
                 row["Cohort"] = i;
+                row["Signup"] = DateTime.Now;
                 table.Rows.Add(row);
             }
 
