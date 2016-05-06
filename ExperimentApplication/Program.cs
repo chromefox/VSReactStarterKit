@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ExperimentApplication.Classes;
+using ExperimentApplication.ConceptClasses.Events;
 using ExperimentApplication.ConceptClasses.QueueConcept;
 
 namespace ExperimentApplication
@@ -37,7 +38,7 @@ namespace ExperimentApplication
 
             Console.Write("Start executing...");
 
-            var main = new ProdSubDummy();
+            var main = new TestEventsMethod();
             main.StartTest();
 
             Console.Write("Finished executing...");

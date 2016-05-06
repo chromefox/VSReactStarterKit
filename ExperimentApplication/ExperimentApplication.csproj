@@ -49,6 +49,10 @@
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Faker.NET4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Faker.Net.1.0.3\lib\net40\Faker.NET4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="HtmlSanitizer, Version=3.0.0.0, Culture=neutral, PublicKeyToken=61c49a1a9e79cc28, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlSanitizer.3.1.93\lib\net45\HtmlSanitizer.dll</HintPath>
       <Private>True</Private>
@@ -84,6 +88,8 @@
     <Compile Include="Classes\OrderByBoolTest.cs" />
     <Compile Include="Classes\SecurityTestClass.cs" />
     <Compile Include="Classes\SystemTime.cs" />
+    <Compile Include="ConceptClasses\Events\Police.cs" />
+    <Compile Include="ConceptClasses\Events\TestEventsMethod.cs" />
     <Compile Include="ConceptClasses\QueueConcept\DummyProducer.cs" />
     <Compile Include="ConceptClasses\QueueConcept\DummySubscriber.cs" />
     <Compile Include="ConceptClasses\QueueConcept\ProdSubDummy.cs" />
