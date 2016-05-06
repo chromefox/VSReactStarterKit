@@ -12,12 +12,10 @@ namespace ExperimentApplication.ConceptClasses.Events
         {
             var newCrimeWatch = new CrimeWatch();
             // add polices with custom behaviour
-            var anne = new Police(newCrimeWatch, new GoodBehaviour());
-            var victor = new Police(newCrimeWatch, new BadBehaviour());
-            var max = new Police(newCrimeWatch, new ModerateBehaviour());
+            var anne = new Police("Anne", newCrimeWatch, new GoodBehaviour());
+            var victor = new Police("Victor", newCrimeWatch, new BadBehaviour());
+            var max = new Police("Mad Max", newCrimeWatch, new ModerateBehaviour());
             newCrimeWatch.StartCrimeWatch();
-
-
         }
     }
 }

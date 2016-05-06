@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using Ploeh.AutoFixture;
 
 namespace ExperimentApplication.ConceptClasses.Events
@@ -45,7 +46,7 @@ namespace ExperimentApplication.ConceptClasses.Events
         }
     }
 
-    public class Police
+    public class Police: INewsBehaviourDefinition
     {
         public string Name { get; set; }
 
@@ -53,10 +54,48 @@ namespace ExperimentApplication.ConceptClasses.Events
 
         private INewsBehaviourDefinition _crimeHandlerBehaviour;
 
-        public Police(CrimeWatch crimeWatch, INewsBehaviourDefinition crimeHandlerBehaviour)
+        private bool _isSubscribed;
+
+        private System.Timers.Timer _timer;
+
+        public Police(string name, CrimeWatch crimeWatch, INewsBehaviourDefinition crimeHandlerBehaviour)
         {
+            Name = name;
             _crimeWatch = crimeWatch;
-            _crimeWatch.NewsReleased += crimeHandlerBehaviour.HandleCrime;
+            _crimeHandlerBehaviour = crimeHandlerBehaviour;
+            _crimeWatch.NewsReleased += HandleCrime;
+            _isSubscribed = true;
+            var randomSwitchInterval = new Random().Next(3, 10);
+            _timer = new System.Timers.Timer()
+            {
+                Enabled = true,
+                Interval = randomSwitchInterval * 1000,
+                AutoReset = true
+            };
+            _timer.Elapsed += SwitchDuty;
+            _timer.Start();
+        }
+
+        public void HandleCrime(object sender, NewsReleasedEventArgs args)
+        {
+            Console.WriteLine($"{Name} reporting.");
+            _crimeHandlerBehaviour.HandleCrime(sender, args);
+        }
+
+        protected void SwitchDuty(object source, ElapsedEventArgs e) 
+        {
+            if (_isSubscribed)
+            {
+                Console.WriteLine($" {Name} going off duty...");
+                _isSubscribed = false;
+                _crimeWatch.NewsReleased -= HandleCrime;
+            }
+            else
+            {
+                Console.WriteLine($" {Name} going on duty...");
+                _isSubscribed = true;
+                _crimeWatch.NewsReleased += HandleCrime;
+            }
         }
     }
 
