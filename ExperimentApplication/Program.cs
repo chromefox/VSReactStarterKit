@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ExperimentApplication.Classes;
+using ExperimentApplication.ConceptClasses.QueueConcept;
 
 namespace ExperimentApplication
 {
@@ -23,9 +25,20 @@ namespace ExperimentApplication
             //var databaseContainer = container.GetInstance<DatabaseService>();
             //// databaseContainer.InitialSetup();
             //databaseContainer.TestUserCascadeDelete();
+
+
+            //var stringToTest = "http://ycs.dev.resolutelabs.com/static/media/asdfasdf/image.jpg";
+            //var stringToTest2 = "https://ycs.dev.resolutelabs.com/static/media/kikikik/image2.jpg";
+            //// SecurityTestClass.TestSanitization(stringToTest);
+            //var host = "ycs.dev.resolutelabs.com/static";
+            //var regex = new Regex($"http(s)?://{host}?");
+            //Console.WriteLine($"Output is  {regex.Replace(stringToTest, string.Empty)}");
+            //Console.WriteLine($"Output is  {regex.Replace(stringToTest2, string.Empty)}");
+
             Console.Write("Start executing...");
 
-            EPPlusUsageRepo.EditNamedCellInformation();
+            var main = new ProdSubDummy();
+            main.StartTest();
 
             Console.Write("Finished executing...");
             Console.ReadLine();

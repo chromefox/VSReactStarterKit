@@ -90,6 +90,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ConceptClassesTest\ProducerSubscriberTest.cs" />
     <Compile Include="CustomAutoMoqData.cs" />
     <Compile Include="TestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
