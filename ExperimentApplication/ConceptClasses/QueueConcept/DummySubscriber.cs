@@ -18,11 +18,13 @@ namespace ExperimentApplication.ConceptClasses.QueueConcept
 
         private int _minInterval = 4;
         private int _maxInterval = 8;
+        private string _name;
 
-        public DummySubscriber(ConcurrentQueue<WorkItem> workItemQueue, Random randomGenerator)
+        public DummySubscriber(ConcurrentQueue<WorkItem> workItemQueue, Random randomGenerator, string name)
         {
             _workItemQueue = workItemQueue;
             _randomGenerator = randomGenerator;
+            _name = name;
         }
 
         public void StartSubscriberWork()
@@ -35,7 +37,7 @@ namespace ExperimentApplication.ConceptClasses.QueueConcept
                 {
                     while (_workItemQueue.TryDequeue(out item))
                     {
-                        Console.WriteLine($"Process work: {nameof(curWork)} :{curWork}");
+                        Console.WriteLine($"{_name} is process work: {nameof(curWork)} :{curWork}");
                         Console.WriteLine($"Processing work item with guid {item.Guid}.");
                         ProcessWork(item);
                         curWork++;

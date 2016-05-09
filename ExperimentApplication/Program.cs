@@ -38,7 +38,7 @@ namespace ExperimentApplication
 
             Console.Write("Start executing...");
 
-            var main = new TestEventsMethod();
+            var main = new ProdSubDummy();
             main.StartTest();
 
             Console.Write("Finished executing...");
